@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\SyncFortnoxData;
 use App\Models\FortnoxConnection;
+use App\Services\Encryption\TeamEncryptionService;
 use App\Services\Fortnox\FortnoxService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,10 @@ use Illuminate\Support\Str;
 
 class FortnoxController extends Controller
 {
+    public function __construct(
+        private readonly TeamEncryptionService $encryptionService
+    ) {}
+
     public function connect(Request $request)
     {
         $team = Auth::user()->currentTeam;
@@ -18,6 +23,19 @@ class FortnoxController extends Controller
         if ($team->hasFortnoxConnected()) {
             return redirect()->route('dashboard')
                 ->with('message', 'Fortnox är redan kopplat.');
+        }
+
+        // Check if encryption is set up before allowing Fortnox connection
+        if (!$team->hasEncryptionInitialized()) {
+            return redirect()->route('encryption.setup')
+                ->with('info', 'För att skydda din finansiella data behöver du först skapa en krypteringsnyckel.');
+        }
+
+        // Check if encryption is unlocked
+        $sessionId = session('encryption_session_id');
+        if (!$sessionId || !$this->encryptionService->isUnlocked($team, $sessionId)) {
+            return redirect()->route('encryption.unlock')
+                ->with('info', 'Lås upp krypteringen för att koppla Fortnox.');
         }
 
         $state = Str::random(40);

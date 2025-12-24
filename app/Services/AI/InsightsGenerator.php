@@ -78,7 +78,7 @@ PROMPT;
             ->limit(10)
             ->get();
 
-        $overdueInvoices = $team->invoices()
+        $overdueInvoices = $team->fortnoxInvoices()
             ->where('status', 'overdue')
             ->orderByDesc('total')
             ->limit(5)

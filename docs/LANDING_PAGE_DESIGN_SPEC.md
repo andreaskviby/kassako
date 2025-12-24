@@ -1,8 +1,8 @@
-# Kassako Landing Page - Complete UI/UX Design Specification
+# CashDash Landing Page - Complete UI/UX Design Specification
 
 ## Executive Summary
 
-This document provides comprehensive UI/UX specifications for the Kassako landing page - a Swedish SaaS that predicts cash flow runway by connecting to Fortnox. The design follows Swedish design principles: clean, trustworthy, and minimal.
+This document provides comprehensive UI/UX specifications for the CashDash landing page - a Swedish SaaS that predicts cash flow runway by connecting to Fortnox. The design follows Swedish design principles: clean, trustworthy, and minimal.
 
 ---
 
@@ -12,14 +12,14 @@ This document provides comprehensive UI/UX specifications for the Kassako landin
 
 | Color Name | Hex Code | CSS Variable | Usage |
 |------------|----------|--------------|-------|
-| Primary (Forest) | `#1A3D2E` | `kassako-forest` | Primary buttons, headers, key UI elements |
-| Accent (Gold) | `#C4A962` | `kassako-gold` | CTAs, highlights, accent elements |
-| Background (Cream) | `#FDFBF7` | `kassako-cream` | Page background, cards |
-| Text | `#1C1C1C` | `kassako-text` | Body text, headings |
-| Muted | `#6B6B6B` | `kassako-muted` | Secondary text, labels |
-| Success | `#2D7A4F` | `kassako-success` | Positive indicators |
-| Warning | `#D97706` | `kassako-warning` | Caution states |
-| Danger | `#DC2626` | `kassako-danger` | Error states, alerts |
+| Primary (Forest) | `#1A3D2E` | `cashdash-forest` | Primary buttons, headers, key UI elements |
+| Accent (Gold) | `#C4A962` | `cashdash-gold` | CTAs, highlights, accent elements |
+| Background (Cream) | `#FDFBF7` | `cashdash-cream` | Page background, cards |
+| Text | `#1C1C1C` | `cashdash-text` | Body text, headings |
+| Muted | `#6B6B6B` | `cashdash-muted` | Secondary text, labels |
+| Success | `#2D7A4F` | `cashdash-success` | Positive indicators |
+| Warning | `#D97706` | `cashdash-warning` | Caution states |
+| Danger | `#DC2626` | `cashdash-danger` | Error states, alerts |
 
 ### Typography
 
@@ -143,7 +143,7 @@ The dramatic "87 dagar" counter is the hero's focal point.
 
 **Trust Indicators:**
 - Three items in a flex row
-- Green checkmarks (kassako-success)
+- Green checkmarks (cashdash-success)
 - Text: "Inget kreditkort kravs", "Uppsagning nar som helst", "Sakerhetskrypterad data"
 
 ---
@@ -316,7 +316,7 @@ The dramatic "87 dagar" counter is the hero's focal point.
 **Quote Styling:**
 - Opening quotation mark: Gold, 36px, serif
 - Quote text: 18px, line-height 1.625
-- Color: kassako-text
+- Color: cashdash-text
 
 **Avatar:**
 - Size: 48x48px
@@ -324,8 +324,8 @@ The dramatic "87 dagar" counter is the hero's focal point.
 - Gradient placeholder background
 
 **Author Info:**
-- Name: semibold, kassako-text
-- Title: 14px, kassako-muted
+- Name: semibold, cashdash-text
+- Title: 14px, cashdash-muted
 
 ---
 
@@ -343,7 +343,7 @@ The dramatic "87 dagar" counter is the hero's focal point.
 
 **Answer:**
 - Padding-bottom: 20px
-- Color: kassako-muted
+- Color: cashdash-muted
 - Line-height: 1.625
 
 **Icon Animation:**
@@ -545,10 +545,10 @@ iteration: infinite
 
 | File | Path |
 |------|------|
-| Tailwind Config | `/Users/andreaskviby/Herd/kassako/tailwind.config.js` |
-| Custom CSS | `/Users/andreaskviby/Herd/kassako/resources/css/app.css` |
-| Landing Template | `/Users/andreaskviby/Herd/kassako/resources/views/landing.blade.php` |
-| Routes | `/Users/andreaskviby/Herd/kassako/routes/web.php` |
+| Tailwind Config | `/Users/andreaskviby/Herd/cashdash/tailwind.config.js` |
+| Custom CSS | `/Users/andreaskviby/Herd/cashdash/resources/css/app.css` |
+| Landing Template | `/Users/andreaskviby/Herd/cashdash/resources/views/landing.blade.php` |
+| Routes | `/Users/andreaskviby/Herd/cashdash/routes/web.php` |
 
 ---
 

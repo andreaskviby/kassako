@@ -27,7 +27,7 @@ class KeyDerivationService
     private const TIME_COST = 3;         // Number of iterations
     private const PARALLELISM = 4;       // Threads
     private const KEY_LENGTH = 32;       // 256 bits
-    private const SALT_LENGTH = 32;      // 256-bit salt
+    private const SALT_LENGTH = SODIUM_CRYPTO_PWHASH_SALTBYTES;  // 16 bytes (required by sodium)
     private const VERIFICATION_LENGTH = 32;
 
     /**

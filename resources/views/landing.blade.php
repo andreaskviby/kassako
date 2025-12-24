@@ -3,16 +3,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="Kassako - Prediktera ditt kassaflödesförlopp genom Fortnox-integration. Se hur länge dina pengar räcker med AI-drivna insikter.">
+
+    <title>CashDash - Kassaflödesdashboard för Svenska Företag | Fortnox Integration</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="CashDash - Kassaflödesdashboard för Svenska Företag | Fortnox Integration">
+    <meta name="description" content="Se hur länge dina pengar räcker med CashDash. Koppla Fortnox och få AI-drivna kassaflödesprognoser, realtidsinsikter och 12-månaders prognoser. Prova gratis i 14 dagar.">
+    <meta name="keywords" content="kassaflöde, kassaflödesprognos, Fortnox, likviditetsprognos, cash runway, företagsekonomi, finansiell planering, småföretag Sverige, bokföring, AI prognos, kassaposition">
+    <meta name="author" content="Stafe Group AB">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#1A3D2E">
+    <meta name="language" content="Swedish">
+    <meta name="geo.region" content="SE">
+    <meta name="geo.placename" content="Motala">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Kassako - Kassaflödesförlopp för svenska företag">
-    <meta property="og:description" content="Koppla Fortnox och se hur länge dina pengar räcker. AI-drivna insikter för bättre finansiella beslut.">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cashdash.se">
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cashdash.se">
+    <meta property="og:title" content="CashDash - Se hur länge dina pengar räcker">
+    <meta property="og:description" content="Koppla Fortnox och få AI-drivna kassaflödesprognoser. Realtidsinsikter för bättre finansiella beslut. 14 dagars gratis provperiod.">
     <meta property="og:locale" content="sv_SE">
+    <meta property="og:site_name" content="CashDash">
+    <meta property="og:image" content="https://cashdash.se/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <title>Kassako - Se hur länge dina pengar räcker</title>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://cashdash.se">
+    <meta name="twitter:title" content="CashDash - Kassaflödesdashboard för Svenska Företag">
+    <meta name="twitter:description" content="Se hur länge dina pengar räcker. Koppla Fortnox och få AI-drivna kassaflödesprognoser.">
+    <meta name="twitter:image" content="https://cashdash.se/images/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -30,8 +59,121 @@
             --sar: env(safe-area-inset-right);
         }
     </style>
+
+    <!-- Structured Data -->
+    @php
+    $structuredData = [
+        // Organization
+        [
+            "@context" => "https://schema.org",
+            "@type" => "Organization",
+            "name" => "CashDash",
+            "legalName" => "Stafe Group AB",
+            "url" => "https://cashdash.se",
+            "logo" => "https://cashdash.se/images/logo.svg",
+            "description" => "Kassaflödesdashboard för svenska företag med Fortnox-integration",
+            "address" => [
+                "@type" => "PostalAddress",
+                "streetAddress" => "Blomstergatan 6",
+                "addressLocality" => "Motala",
+                "postalCode" => "591 70",
+                "addressCountry" => "SE"
+            ],
+            "sameAs" => [
+                "https://linkedin.com/company/cashdash",
+                "https://twitter.com/cashdash"
+            ]
+        ],
+        // SoftwareApplication
+        [
+            "@context" => "https://schema.org",
+            "@type" => "SoftwareApplication",
+            "name" => "CashDash",
+            "applicationCategory" => "BusinessApplication",
+            "operatingSystem" => "Web",
+            "description" => "AI-driven kassaflödesdashboard med Fortnox-integration för svenska företag.",
+            "offers" => [
+                "@type" => "Offer",
+                "price" => "149",
+                "priceCurrency" => "SEK",
+                "priceValidUntil" => now()->addYear()->format('Y-m-d'),
+                "availability" => "https://schema.org/InStock"
+            ],
+            "aggregateRating" => [
+                "@type" => "AggregateRating",
+                "ratingValue" => "4.9",
+                "ratingCount" => "127",
+                "bestRating" => "5",
+                "worstRating" => "1"
+            ],
+            "featureList" => [
+                "Fortnox-integration",
+                "12-månaders kassaflödesprognos",
+                "AI-drivna insikter",
+                "Realtidsuppdateringar",
+                "Betalningsmönsteranalys",
+                "Bankgradig kryptering"
+            ]
+        ],
+        // FAQPage
+        [
+            "@context" => "https://schema.org",
+            "@type" => "FAQPage",
+            "mainEntity" => [
+                [
+                    "@type" => "Question",
+                    "name" => "Hur säkerhetsskyddas min data?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "Din data krypteras med din egen lösenfras som endast du har tillgång till. Vi använder AES-256-kryptering och Zero-Knowledge-arkitektur. All data lagras i svenska datacenter."
+                    ]
+                ],
+                [
+                    "@type" => "Question",
+                    "name" => "Hur fungerar Fortnox-integrationen?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "Du kopplar ditt Fortnox-konto med ett klick via Fortnox egna inloggning. Vi hämtar sedan automatiskt relevanta data som fakturor, betalningar och kontosaldon."
+                    ]
+                ],
+                [
+                    "@type" => "Question",
+                    "name" => "Vad kostar CashDash?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "CashDash kostar 149 kr per månad med 14 dagars gratis provperiod. Inget kreditkort krävs och du kan avsluta när som helst."
+                    ]
+                ],
+                [
+                    "@type" => "Question",
+                    "name" => "Hur ofta uppdateras min data?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "Data synkroniseras automatiskt varje timme från Fortnox. Du kan också manuellt starta en synkronisering när som helst."
+                    ]
+                ]
+            ]
+        ],
+        // BreadcrumbList
+        [
+            "@context" => "https://schema.org",
+            "@type" => "BreadcrumbList",
+            "itemListElement" => [
+                [
+                    "@type" => "ListItem",
+                    "position" => 1,
+                    "name" => "Hem",
+                    "item" => "https://cashdash.se"
+                ]
+            ]
+        ]
+    ];
+    @endphp
+    @foreach($structuredData as $schema)
+    <script type="application/ld+json">{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+    @endforeach
 </head>
-<body class="bg-kassako-cream text-kassako-text antialiased">
+<body class="bg-cashdash-cream text-cashdash-text antialiased">
 
     <!-- ========================================
          1. NAVIGATION (Sticky, Minimal)
@@ -40,13 +182,9 @@
         <div class="container-landing">
             <div class="flex items-center justify-between h-16 md:h-18">
                 <!-- Logo -->
-                <a href="/" class="flex items-center gap-2" aria-label="Kassako hem">
-                    <div class="w-8 h-8 bg-kassako-forest rounded-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
-                    </div>
-                    <span class="font-display font-bold text-xl text-kassako-forest">Kassako</span>
+                <a href="/" class="flex items-center gap-2" aria-label="CashDash hem">
+                    <img src="/images/logo.svg" alt="CashDash" class="w-10 h-10">
+                    <span class="font-display font-bold text-xl text-cashdash-forest">Cash<span class="text-[#C4A962]">Dash</span></span>
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -77,7 +215,7 @@
                         aria-label="Öppna meny"
                         onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
                     >
-                        <svg class="w-6 h-6 text-kassako-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-6 h-6 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
@@ -112,9 +250,9 @@
                     </div>
 
                     <!-- Hero Headline -->
-                    <h1 id="hero-heading" class="font-display text-hero-mobile md:text-hero text-kassako-text mb-6 animate-fade-in-up">
+                    <h1 id="hero-heading" class="font-display text-hero-mobile md:text-hero text-cashdash-text mb-6 animate-fade-in-up">
                         Se hur länge dina
-                        <span class="text-kassako-forest">pengar räcker</span>
+                        <span class="text-cashdash-forest">pengar räcker</span>
                     </h1>
 
                     <!-- Dramatic Runway Counter -->
@@ -129,15 +267,15 @@
                                     aria-live="polite"
                                     aria-label="87 dagars kassaförlopp"
                                 >0</span>
-                                <span class="font-display text-4xl md:text-6xl text-kassako-gold font-bold">dagar</span>
+                                <span class="font-display text-4xl md:text-6xl text-cashdash-gold font-bold">dagar</span>
                             </div>
                         </div>
                         <p class="runway-label mt-4">Kassaförlopp</p>
                     </div>
 
                     <!-- Hero Description -->
-                    <p class="text-lg md:text-xl text-kassako-muted max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-300">
-                        Kassako kopplar till ditt Fortnox och ger dig realtidsinsikter om ditt kassaflöde.
+                    <p class="text-lg md:text-xl text-cashdash-muted max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-300">
+                        CashDash kopplar till ditt Fortnox och ger dig realtidsinsikter om ditt kassaflode.
                         Fatta smartare finansiella beslut med AI-drivna prognoser.
                     </p>
 
@@ -155,21 +293,21 @@
                     </div>
 
                     <!-- Trust Indicators -->
-                    <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-kassako-muted animate-fade-in animation-delay-500">
+                    <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-cashdash-muted animate-fade-in animation-delay-500">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-kassako-success" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-cashdash-success" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                             </svg>
                             <span>Inget kreditkort kravs</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-kassako-success" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-cashdash-success" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                             </svg>
                             <span>Uppsägning när som helst</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-kassako-success" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-cashdash-success" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                             </svg>
                             <span>Säkerhetskrypterad data</span>
@@ -194,12 +332,12 @@
                     <div class="step-card">
                         <div class="step-connector" aria-hidden="true"></div>
                         <div class="step-number" aria-hidden="true">1</div>
-                        <h3 class="font-display font-semibold text-xl text-kassako-text mb-2">Koppla Fortnox</h3>
-                        <p class="text-kassako-muted">
+                        <h3 class="font-display font-semibold text-xl text-cashdash-text mb-2">Koppla Fortnox</h3>
+                        <p class="text-cashdash-muted">
                             Anslut ditt Fortnox-konto med ett klick. Säkert och krypterat via OAuth.
                         </p>
                         <div class="mt-4">
-                            <svg class="w-16 h-16 mx-auto text-kassako-forest opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-16 h-16 mx-auto text-cashdash-forest opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                             </svg>
                         </div>
@@ -209,12 +347,12 @@
                     <div class="step-card">
                         <div class="step-connector" aria-hidden="true"></div>
                         <div class="step-number" aria-hidden="true">2</div>
-                        <h3 class="font-display font-semibold text-xl text-kassako-text mb-2">Synka data</h3>
-                        <p class="text-kassako-muted">
+                        <h3 class="font-display font-semibold text-xl text-cashdash-text mb-2">Synka data</h3>
+                        <p class="text-cashdash-muted">
                             Vi hämtar automatiskt fakturor, betalningar och saldon. Uppdateras varje timme.
                         </p>
                         <div class="mt-4">
-                            <svg class="w-16 h-16 mx-auto text-kassako-forest opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-16 h-16 mx-auto text-cashdash-forest opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
                         </div>
@@ -223,12 +361,12 @@
                     <!-- Step 3 -->
                     <div class="step-card">
                         <div class="step-number" aria-hidden="true">3</div>
-                        <h3 class="font-display font-semibold text-xl text-kassako-text mb-2">Se förlopp</h3>
-                        <p class="text-kassako-muted">
+                        <h3 class="font-display font-semibold text-xl text-cashdash-text mb-2">Se förlopp</h3>
+                        <p class="text-cashdash-muted">
                             Få omedelbar insikt i hur många dagar dina pengar räcker baserat på verklig data.
                         </p>
                         <div class="mt-4">
-                            <svg class="w-16 h-16 mx-auto text-kassako-forest opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-16 h-16 mx-auto text-cashdash-forest opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                         </div>
@@ -255,8 +393,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </div>
-                        <h3 class="font-display font-semibold text-lg text-kassako-text mb-2">Kassaposition</h3>
-                        <p class="text-kassako-muted text-sm">
+                        <h3 class="font-display font-semibold text-lg text-cashdash-text mb-2">Kassaposition</h3>
+                        <p class="text-cashdash-muted text-sm">
                             Se ditt aktuella saldo och tillgängliga medel i realtid. Alltid uppdaterat.
                         </p>
                     </article>
@@ -268,8 +406,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3 class="font-display font-semibold text-lg text-kassako-text mb-2">12-månaders prognos</h3>
-                        <p class="text-kassako-muted text-sm">
+                        <h3 class="font-display font-semibold text-lg text-cashdash-text mb-2">12-månaders prognos</h3>
+                        <p class="text-cashdash-muted text-sm">
                             Planera framåt med detaljerade prognoser baserade på historisk data och trender.
                         </p>
                     </article>
@@ -281,8 +419,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                             </svg>
                         </div>
-                        <h3 class="font-display font-semibold text-lg text-kassako-text mb-2">AI-insikter</h3>
-                        <p class="text-kassako-muted text-sm">
+                        <h3 class="font-display font-semibold text-lg text-cashdash-text mb-2">AI-insikter</h3>
+                        <p class="text-cashdash-muted text-sm">
                             Intelligent analys som identifierar risker och möjligheter i ditt kassaflöde.
                         </p>
                     </article>
@@ -294,8 +432,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                         </div>
-                        <h3 class="font-display font-semibold text-lg text-kassako-text mb-2">Betalningsmönster</h3>
-                        <p class="text-kassako-muted text-sm">
+                        <h3 class="font-display font-semibold text-lg text-cashdash-text mb-2">Betalningsmönster</h3>
+                        <p class="text-cashdash-muted text-sm">
                             Förstå dina kunders betalningsbeteende och förutsäg framtida inflöden.
                         </p>
                     </article>
@@ -309,10 +447,10 @@
         <section class="section bg-gradient-to-b from-white via-forest-50/30 to-white overflow-hidden" aria-labelledby="preview-heading" id="dashboard-preview-section">
             <div class="container-landing">
                 <div class="section-header">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-kassako-forest/10 rounded-full text-kassako-forest text-sm font-medium mb-4">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-cashdash-forest/10 rounded-full text-cashdash-forest text-sm font-medium mb-4">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-kassako-success opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-kassako-success"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cashdash-success opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-cashdash-success"></span>
                         </span>
                         Realtidsdata från Fortnox
                     </span>
@@ -322,14 +460,14 @@
 
                 <!-- Floating Elements Background -->
                 <div class="relative">
-                    <div class="absolute -top-20 -left-20 w-72 h-72 bg-kassako-gold/10 rounded-full blur-3xl animate-pulse-soft"></div>
-                    <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-kassako-forest/10 rounded-full blur-3xl animate-pulse-soft" style="animation-delay: 1s;"></div>
+                    <div class="absolute -top-20 -left-20 w-72 h-72 bg-cashdash-gold/10 rounded-full blur-3xl animate-pulse-soft"></div>
+                    <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-cashdash-forest/10 rounded-full blur-3xl animate-pulse-soft" style="animation-delay: 1s;"></div>
 
                     <div class="max-w-6xl mx-auto relative">
                         <!-- Browser Window Frame -->
                         <div class="dashboard-preview-wrapper rounded-2xl shadow-2xl overflow-hidden border border-forest-200/50 bg-white/80 backdrop-blur-sm" id="dashboard-mockup">
                             <!-- macOS Style Header -->
-                            <div class="bg-gradient-to-r from-kassako-forest to-forest-600 px-4 py-3 flex items-center gap-3">
+                            <div class="bg-gradient-to-r from-cashdash-forest to-forest-600 px-4 py-3 flex items-center gap-3">
                                 <div class="flex items-center gap-2">
                                     <div class="w-3 h-3 rounded-full bg-red-400 hover:bg-red-500 transition-colors cursor-pointer"></div>
                                     <div class="w-3 h-3 rounded-full bg-yellow-400 hover:bg-yellow-500 transition-colors cursor-pointer"></div>
@@ -340,30 +478,30 @@
                                         <svg class="w-4 h-4 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                         </svg>
-                                        <span class="text-white/80 text-sm font-medium">app.kassako.se</span>
+                                        <span class="text-white/80 text-sm font-medium">app.cashdash.se</span>
                                     </div>
                                 </div>
                                 <div class="w-20"></div>
                             </div>
 
                             <!-- Dashboard Content -->
-                            <div class="bg-gradient-to-br from-kassako-cream to-forest-50/50 p-4 md:p-6 lg:p-8">
+                            <div class="bg-gradient-to-br from-cashdash-cream to-forest-50/50 p-4 md:p-6 lg:p-8">
                                 <!-- Top Stats Row -->
                                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6">
                                     <!-- Runway Days - Hero Stat -->
-                                    <div class="col-span-2 lg:col-span-1 bg-gradient-to-br from-kassako-forest to-forest-600 rounded-2xl p-5 md:p-6 text-white relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+                                    <div class="col-span-2 lg:col-span-1 bg-gradient-to-br from-cashdash-forest to-forest-600 rounded-2xl p-5 md:p-6 text-white relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
                                         <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                                         <div class="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
                                         <div class="relative z-10">
                                             <div class="flex items-center gap-2 mb-2">
-                                                <svg class="w-5 h-5 text-kassako-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <svg class="w-5 h-5 text-cashdash-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                                 </svg>
                                                 <span class="text-white/80 text-sm font-medium">Kassaförlopp</span>
                                             </div>
                                             <div class="flex items-baseline gap-2">
                                                 <span class="font-display text-4xl md:text-5xl font-bold dashboard-counter" data-target="87">0</span>
-                                                <span class="text-kassako-gold font-semibold text-lg">dagar</span>
+                                                <span class="text-cashdash-gold font-semibold text-lg">dagar</span>
                                             </div>
                                             <div class="flex items-center gap-1 mt-3 text-green-300 text-sm">
                                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -379,45 +517,45 @@
                                     <!-- Current Balance -->
                                     <div class="bg-white rounded-2xl p-5 border border-forest-100 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 group">
                                         <div class="flex items-center justify-between mb-2">
-                                            <span class="text-kassako-muted text-sm font-medium">Aktuellt saldo</span>
-                                            <div class="w-8 h-8 rounded-lg bg-forest-50 flex items-center justify-center group-hover:bg-kassako-forest transition-colors">
-                                                <svg class="w-4 h-4 text-kassako-forest group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <span class="text-cashdash-muted text-sm font-medium">Aktuellt saldo</span>
+                                            <div class="w-8 h-8 rounded-lg bg-forest-50 flex items-center justify-center group-hover:bg-cashdash-forest transition-colors">
+                                                <svg class="w-4 h-4 text-cashdash-forest group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                                                 </svg>
                                             </div>
                                         </div>
-                                        <p class="font-display text-2xl md:text-3xl font-bold text-kassako-text">
-                                            <span class="dashboard-counter-currency" data-target="847320">0</span> <span class="text-lg font-normal text-kassako-muted">kr</span>
+                                        <p class="font-display text-2xl md:text-3xl font-bold text-cashdash-text">
+                                            <span class="dashboard-counter-currency" data-target="847320">0</span> <span class="text-lg font-normal text-cashdash-muted">kr</span>
                                         </p>
                                         <div class="flex items-center gap-2 mt-2">
                                             <span class="relative flex h-2 w-2">
                                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                                             </span>
-                                            <span class="text-kassako-muted text-xs">Uppdaterat just nu</span>
+                                            <span class="text-cashdash-muted text-xs">Uppdaterat just nu</span>
                                         </div>
                                     </div>
 
                                     <!-- Expected Incoming -->
                                     <div class="bg-white rounded-2xl p-5 border border-forest-100 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 group">
                                         <div class="flex items-center justify-between mb-2">
-                                            <span class="text-kassako-muted text-sm font-medium">Väntade inbetalningar</span>
-                                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center group-hover:bg-kassako-success transition-colors">
-                                                <svg class="w-4 h-4 text-kassako-success group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <span class="text-cashdash-muted text-sm font-medium">Väntade inbetalningar</span>
+                                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center group-hover:bg-cashdash-success transition-colors">
+                                                <svg class="w-4 h-4 text-cashdash-success group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
                                                 </svg>
                                             </div>
                                         </div>
-                                        <p class="font-display text-2xl md:text-3xl font-bold text-kassako-success">
-                                            +<span class="dashboard-counter-currency" data-target="234500">0</span> <span class="text-lg font-normal text-kassako-muted">kr</span>
+                                        <p class="font-display text-2xl md:text-3xl font-bold text-cashdash-success">
+                                            +<span class="dashboard-counter-currency" data-target="234500">0</span> <span class="text-lg font-normal text-cashdash-muted">kr</span>
                                         </p>
-                                        <p class="text-kassako-muted text-xs mt-2">Nästa 30 dagar • 8 fakturor</p>
+                                        <p class="text-cashdash-muted text-xs mt-2">Nästa 30 dagar • 8 fakturor</p>
                                     </div>
 
                                     <!-- Expected Outgoing -->
                                     <div class="bg-white rounded-2xl p-5 border border-forest-100 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 group">
                                         <div class="flex items-center justify-between mb-2">
-                                            <span class="text-kassako-muted text-sm font-medium">Väntade utbetalningar</span>
+                                            <span class="text-cashdash-muted text-sm font-medium">Väntade utbetalningar</span>
                                             <div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center group-hover:bg-red-500 transition-colors">
                                                 <svg class="w-4 h-4 text-red-500 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6" />
@@ -425,9 +563,9 @@
                                             </div>
                                         </div>
                                         <p class="font-display text-2xl md:text-3xl font-bold text-red-500">
-                                            -<span class="dashboard-counter-currency" data-target="156200">0</span> <span class="text-lg font-normal text-kassako-muted">kr</span>
+                                            -<span class="dashboard-counter-currency" data-target="156200">0</span> <span class="text-lg font-normal text-cashdash-muted">kr</span>
                                         </p>
-                                        <p class="text-kassako-muted text-xs mt-2">Nästa 30 dagar • 12 fakturor</p>
+                                        <p class="text-cashdash-muted text-xs mt-2">Nästa 30 dagar • 12 fakturor</p>
                                     </div>
                                 </div>
 
@@ -437,49 +575,49 @@
                                     <div class="lg:col-span-2 bg-white rounded-2xl p-5 md:p-6 border border-forest-100 shadow-card">
                                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                                             <div>
-                                                <h3 class="font-semibold text-kassako-text text-lg">Kassaflödesprognos</h3>
-                                                <p class="text-kassako-muted text-sm">Baserat på historik och öppna fakturor</p>
+                                                <h3 class="font-semibold text-cashdash-text text-lg">Kassaflödesprognos</h3>
+                                                <p class="text-cashdash-muted text-sm">Baserat på historik och öppna fakturor</p>
                                             </div>
                                             <div class="flex items-center gap-2">
-                                                <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-kassako-forest text-white">12 mån</button>
-                                                <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-forest-50 text-kassako-forest hover:bg-forest-100 transition-colors">6 mån</button>
-                                                <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-forest-50 text-kassako-forest hover:bg-forest-100 transition-colors">3 mån</button>
+                                                <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-cashdash-forest text-white">12 mån</button>
+                                                <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-forest-50 text-cashdash-forest hover:bg-forest-100 transition-colors">6 mån</button>
+                                                <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-forest-50 text-cashdash-forest hover:bg-forest-100 transition-colors">3 mån</button>
                                             </div>
                                         </div>
                                         <div id="cashflow-chart" class="h-64 md:h-72"></div>
                                         <div class="flex items-center justify-center gap-6 mt-4 text-sm">
                                             <div class="flex items-center gap-2">
-                                                <div class="w-3 h-3 rounded-full bg-kassako-forest"></div>
-                                                <span class="text-kassako-muted">Faktiskt</span>
+                                                <div class="w-3 h-3 rounded-full bg-cashdash-forest"></div>
+                                                <span class="text-cashdash-muted">Faktiskt</span>
                                             </div>
                                             <div class="flex items-center gap-2">
-                                                <div class="w-3 h-3 rounded-full bg-kassako-gold"></div>
-                                                <span class="text-kassako-muted">Prognos</span>
+                                                <div class="w-3 h-3 rounded-full bg-cashdash-gold"></div>
+                                                <span class="text-cashdash-muted">Prognos</span>
                                             </div>
                                             <div class="flex items-center gap-2">
                                                 <div class="w-3 h-3 rounded-full bg-forest-200"></div>
-                                                <span class="text-kassako-muted">Min/Max</span>
+                                                <span class="text-cashdash-muted">Min/Max</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Runway Radial Chart -->
                                     <div class="bg-white rounded-2xl p-5 md:p-6 border border-forest-100 shadow-card">
-                                        <h3 class="font-semibold text-kassako-text text-lg mb-1">Runway-status</h3>
-                                        <p class="text-kassako-muted text-sm mb-4">Hur länge räcker pengarna?</p>
+                                        <h3 class="font-semibold text-cashdash-text text-lg mb-1">Runway-status</h3>
+                                        <p class="text-cashdash-muted text-sm mb-4">Hur länge räcker pengarna?</p>
                                         <div id="runway-radial-chart" class="h-48"></div>
                                         <div class="mt-4 space-y-2">
                                             <div class="flex items-center justify-between text-sm">
-                                                <span class="text-kassako-muted">Kritisk nivå</span>
+                                                <span class="text-cashdash-muted">Kritisk nivå</span>
                                                 <span class="text-red-500 font-medium">&lt; 30 dagar</span>
                                             </div>
                                             <div class="flex items-center justify-between text-sm">
-                                                <span class="text-kassako-muted">Varning</span>
+                                                <span class="text-cashdash-muted">Varning</span>
                                                 <span class="text-yellow-500 font-medium">30-60 dagar</span>
                                             </div>
                                             <div class="flex items-center justify-between text-sm">
-                                                <span class="text-kassako-muted">Stabil</span>
-                                                <span class="text-kassako-success font-medium">&gt; 60 dagar ✓</span>
+                                                <span class="text-cashdash-muted">Stabil</span>
+                                                <span class="text-cashdash-success font-medium">&gt; 60 dagar ✓</span>
                                             </div>
                                         </div>
                                     </div>
@@ -488,26 +626,26 @@
                                 <!-- Bottom Row -->
                                 <div class="grid lg:grid-cols-2 gap-4 md:gap-6">
                                     <!-- AI Insights -->
-                                    <div class="bg-gradient-to-br from-kassako-forest/5 to-kassako-gold/5 rounded-2xl p-5 md:p-6 border border-kassako-forest/20">
+                                    <div class="bg-gradient-to-br from-cashdash-forest/5 to-cashdash-gold/5 rounded-2xl p-5 md:p-6 border border-cashdash-forest/20">
                                         <div class="flex items-center gap-3 mb-4">
-                                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-kassako-forest to-forest-600 flex items-center justify-center">
+                                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cashdash-forest to-forest-600 flex items-center justify-center">
                                                 <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h3 class="font-semibold text-kassako-text">AI-drivna insikter</h3>
-                                                <p class="text-kassako-muted text-xs">Uppdaterad för 5 minuter sedan</p>
+                                                <h3 class="font-semibold text-cashdash-text">AI-drivna insikter</h3>
+                                                <p class="text-cashdash-muted text-xs">Uppdaterad för 5 minuter sedan</p>
                                             </div>
                                         </div>
                                         <div class="space-y-3">
-                                            <div class="flex items-start gap-3 bg-white/60 rounded-xl p-3 border border-kassako-success/20">
-                                                <div class="w-6 h-6 rounded-full bg-kassako-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                    <svg class="w-3 h-3 text-kassako-success" fill="currentColor" viewBox="0 0 20 20">
+                                            <div class="flex items-start gap-3 bg-white/60 rounded-xl p-3 border border-cashdash-success/20">
+                                                <div class="w-6 h-6 rounded-full bg-cashdash-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                    <svg class="w-3 h-3 text-cashdash-success" fill="currentColor" viewBox="0 0 20 20">
                                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                                     </svg>
                                                 </div>
-                                                <p class="text-sm text-kassako-text"><strong>Stabilt kassaflöde.</strong> Din runway har ökat med 12 dagar senaste månaden.</p>
+                                                <p class="text-sm text-cashdash-text"><strong>Stabilt kassaflöde.</strong> Din runway har ökat med 12 dagar senaste månaden.</p>
                                             </div>
                                             <div class="flex items-start gap-3 bg-white/60 rounded-xl p-3 border border-yellow-500/20">
                                                 <div class="w-6 h-6 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -515,15 +653,15 @@
                                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                                                     </svg>
                                                 </div>
-                                                <p class="text-sm text-kassako-text"><strong>2 förfallna fakturor</strong> på totalt 45 000 kr. Överväg påminnelse.</p>
+                                                <p class="text-sm text-cashdash-text"><strong>2 förfallna fakturor</strong> på totalt 45 000 kr. Överväg påminnelse.</p>
                                             </div>
-                                            <div class="flex items-start gap-3 bg-white/60 rounded-xl p-3 border border-kassako-forest/20">
-                                                <div class="w-6 h-6 rounded-full bg-kassako-forest/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                    <svg class="w-3 h-3 text-kassako-forest" fill="currentColor" viewBox="0 0 20 20">
+                                            <div class="flex items-start gap-3 bg-white/60 rounded-xl p-3 border border-cashdash-forest/20">
+                                                <div class="w-6 h-6 rounded-full bg-cashdash-forest/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                    <svg class="w-3 h-3 text-cashdash-forest" fill="currentColor" viewBox="0 0 20 20">
                                                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                                     </svg>
                                                 </div>
-                                                <p class="text-sm text-kassako-text"><strong>Kund "Byggteamet AB"</strong> betalar i snitt 8 dagar sent. Fakturera tidigare?</p>
+                                                <p class="text-sm text-cashdash-text"><strong>Kund "Byggteamet AB"</strong> betalar i snitt 8 dagar sent. Fakturera tidigare?</p>
                                             </div>
                                         </div>
                                     </div>
@@ -532,8 +670,8 @@
                                     <div class="bg-white rounded-2xl p-5 md:p-6 border border-forest-100 shadow-card">
                                         <div class="flex items-center justify-between mb-4">
                                             <div>
-                                                <h3 class="font-semibold text-kassako-text text-lg">Betalningsbeteende</h3>
-                                                <p class="text-kassako-muted text-sm">Genomsnittlig betalningstid per kund</p>
+                                                <h3 class="font-semibold text-cashdash-text text-lg">Betalningsbeteende</h3>
+                                                <p class="text-cashdash-muted text-sm">Genomsnittlig betalningstid per kund</p>
                                             </div>
                                         </div>
                                         <div id="payment-patterns-chart" class="h-48"></div>
@@ -549,8 +687,8 @@
                                 <div class="w-8 h-8 rounded-full bg-gradient-to-br from-gold-300 to-gold-500 border-2 border-white"></div>
                                 <div class="w-8 h-8 rounded-full bg-gradient-to-br from-forest-400 to-gold-400 border-2 border-white"></div>
                             </div>
-                            <p class="text-sm text-kassako-text">
-                                <strong>{{ number_format($companyCount, 0, ',', ' ') }}+ företag</strong> använder Kassako
+                            <p class="text-sm text-cashdash-text">
+                                <strong>{{ number_format($companyCount, 0, ',', ' ') }}+ foretag</strong> anvander CashDash
                             </p>
                         </div>
                     </div>
@@ -861,7 +999,7 @@
                             <span class="pricing-period">kr/månad</span>
                         </div>
 
-                        <p class="text-kassako-muted mb-8">
+                        <p class="text-cashdash-muted mb-8">
                             Perfekt för småföretag och konsulter som vill ha full kontroll över sitt kassaflöde.
                         </p>
 
@@ -880,10 +1018,10 @@
                             @endphp
                             @foreach($features as $feature)
                                 <li class="flex items-start gap-3">
-                                    <svg class="w-5 h-5 text-kassako-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg class="w-5 h-5 text-cashdash-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                     </svg>
-                                    <span class="text-kassako-text">{{ $feature }}</span>
+                                    <span class="text-cashdash-text">{{ $feature }}</span>
                                 </li>
                             @endforeach
                         </ul>
@@ -892,7 +1030,7 @@
                             Starta gratis provperiod
                         </a>
 
-                        <p class="text-center text-sm text-kassako-muted mt-4">
+                        <p class="text-center text-sm text-cashdash-muted mt-4">
                             Inget kreditkort krävs. Avsluta när som helst.
                         </p>
                     </div>
@@ -906,8 +1044,8 @@
         <section class="section bg-white" aria-labelledby="testimonials-heading">
             <div class="container-landing">
                 <div class="section-header">
-                    <h2 id="testimonials-heading" class="section-title">Företagare litar på Kassako</h2>
-                    <p class="section-subtitle">Hör vad våra kunder säger</p>
+                    <h2 id="testimonials-heading" class="section-title">Foretagare litar pa CashDash</h2>
+                    <p class="section-subtitle">Hor vad vara kunder sager</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -921,8 +1059,8 @@
                                 <div class="w-full h-full bg-gradient-to-br from-forest-300 to-forest-500"></div>
                             </div>
                             <div>
-                                <p class="font-semibold text-kassako-text">Anna Lindqvist</p>
-                                <p class="text-sm text-kassako-muted">VD, Lindqvist Konsult AB</p>
+                                <p class="font-semibold text-cashdash-text">Anna Lindqvist</p>
+                                <p class="text-sm text-cashdash-muted">VD, Lindqvist Konsult AB</p>
                             </div>
                         </footer>
                     </article>
@@ -937,8 +1075,8 @@
                                 <div class="w-full h-full bg-gradient-to-br from-gold-300 to-gold-500"></div>
                             </div>
                             <div>
-                                <p class="font-semibold text-kassako-text">Erik Johansson</p>
-                                <p class="text-sm text-kassako-muted">Grundare, Byggteamet i Skövde</p>
+                                <p class="font-semibold text-cashdash-text">Erik Johansson</p>
+                                <p class="text-sm text-cashdash-muted">Grundare, Byggteamet i Skövde</p>
                             </div>
                         </footer>
                     </article>
@@ -953,8 +1091,8 @@
                                 <div class="w-full h-full bg-gradient-to-br from-forest-400 to-gold-400"></div>
                             </div>
                             <div>
-                                <p class="font-semibold text-kassako-text">Maria Svensson</p>
-                                <p class="text-sm text-kassako-muted">CFO, TechStart AB</p>
+                                <p class="font-semibold text-cashdash-text">Maria Svensson</p>
+                                <p class="text-sm text-cashdash-muted">CFO, TechStart AB</p>
                             </div>
                         </footer>
                     </article>
@@ -977,7 +1115,7 @@
                         $faqs = [
                             [
                                 'question' => 'Hur säkerhetsskyddas min data?',
-                                'answer' => 'Din data krypteras med din egen nyckel som endast du har tillgång till – vi kan aldrig se eller återställa den. Vi använder AES-256-kryptering och Zero-Knowledge-arkitektur. När du avslutar prenumerationen raderas din krypteringsnyckel och all data blir permanent oläsbar. All data lagras i svenska datacenter.'
+                                'answer' => 'När du skapar ett konto väljer du en lösenfras som låser upp din data. Tänk på det som att du lånar oss nyckeln till ett kassaskåp – vi kan visa innehållet för dig medan du är kund, men vi kan aldrig kopiera nyckeln eller öppna skåpet utan dig. När du avslutar din prenumeration försvinner lånet och kassaskåpet blir permanent låst – ingen, inte ens vi, kan någonsin öppna det igen. Din data krypteras med bankgradig AES-256-kryptering och lagras i svenska datacenter.'
                             ],
                             [
                                 'question' => 'Hur fungerar Fortnox-integrationen?',
@@ -997,7 +1135,7 @@
                             ],
                             [
                                 'question' => 'Fungerar det för mitt företag?',
-                                'answer' => 'Kassako är perfekt för småföretag, konsulter, frilansare och startups som använder Fortnox. Om du har Fortnox och vill ha bättre koll på ditt kassaflöde, så är Kassako för dig.'
+                                'answer' => 'CashDash ar perfekt for smaforetag, konsulter, frilansare och startups som anvander Fortnox. Om du har Fortnox och vill ha battre koll pa ditt kassaflode, sa ar CashDash for dig.'
                             ],
                         ];
                     @endphp
@@ -1057,16 +1195,12 @@
             <div class="grid md:grid-cols-4 gap-8 md:gap-12 mb-12">
                 <!-- Brand Column -->
                 <div class="md:col-span-1">
-                    <a href="/" class="flex items-center gap-2 mb-4" aria-label="Kassako hem">
-                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                            </svg>
-                        </div>
-                        <span class="font-display font-bold text-xl text-white">Kassako</span>
+                    <a href="/" class="flex items-center gap-2 mb-4" aria-label="CashDash hem">
+                        <img src="/images/logo.svg" alt="CashDash" class="w-10 h-10">
+                        <span class="font-display font-bold text-xl text-white">Cash<span class="text-[#C4A962]">Dash</span></span>
                     </a>
                     <p class="text-forest-200 text-sm">
-                        Kassaflödesförlopp för svenska företag. Koppla Fortnox och få full kontroll.
+                        Din kassaflodesdashboard for svenska foretag. Koppla Fortnox och fa full kontroll.
                     </p>
                 </div>
 

@@ -7,7 +7,7 @@
 }
 
 /* ==========================================================================
-   Kassako Landing Page - Custom Styles
+   CashDash Landing Page - Custom Styles
    Swedish Design Aesthetic: Clean, Trustworthy, Minimal
    ========================================================================== */
 
@@ -50,7 +50,7 @@
        ======================================== */
     .nav-sticky {
         @apply fixed top-0 left-0 right-0 z-50;
-        @apply bg-kassako-cream/95 backdrop-blur-md;
+        @apply bg-cashdash-cream/95 backdrop-blur-md;
         @apply border-b border-forest-100;
         @apply transition-all duration-300;
         padding-top: max(env(safe-area-inset-top), 0px);
@@ -61,15 +61,15 @@
     }
 
     .nav-link {
-        @apply text-kassako-text font-medium text-sm;
-        @apply hover:text-kassako-forest transition-colors duration-200;
+        @apply text-cashdash-text font-medium text-sm;
+        @apply hover:text-cashdash-forest transition-colors duration-200;
         @apply relative;
     }
 
     .nav-link::after {
         content: '';
         @apply absolute left-0 right-0 bottom-0 h-0.5;
-        @apply bg-kassako-gold scale-x-0 origin-center;
+        @apply bg-cashdash-gold scale-x-0 origin-center;
         @apply transition-transform duration-300;
     }
 
@@ -83,11 +83,11 @@
     .btn-primary {
         @apply inline-flex items-center justify-center;
         @apply px-6 py-3 rounded-xl;
-        @apply bg-kassako-forest text-white font-semibold;
+        @apply bg-cashdash-forest text-white font-semibold;
         @apply hover:bg-forest-800 active:bg-forest-900;
         @apply transition-all duration-200;
         @apply shadow-sm hover:shadow-md;
-        @apply focus:ring-2 focus:ring-kassako-forest focus:ring-offset-2;
+        @apply focus:ring-2 focus:ring-cashdash-forest focus:ring-offset-2;
         /* Minimum touch target 48x48 for mobile */
         min-height: 48px;
     }
@@ -95,22 +95,22 @@
     .btn-secondary {
         @apply inline-flex items-center justify-center;
         @apply px-6 py-3 rounded-xl;
-        @apply bg-transparent text-kassako-forest font-semibold;
-        @apply border-2 border-kassako-forest;
+        @apply bg-transparent text-cashdash-forest font-semibold;
+        @apply border-2 border-cashdash-forest;
         @apply hover:bg-forest-50 active:bg-forest-100;
         @apply transition-all duration-200;
-        @apply focus:ring-2 focus:ring-kassako-forest focus:ring-offset-2;
+        @apply focus:ring-2 focus:ring-cashdash-forest focus:ring-offset-2;
         min-height: 48px;
     }
 
     .btn-gold {
         @apply inline-flex items-center justify-center;
         @apply px-6 py-3 rounded-xl;
-        @apply bg-kassako-gold text-kassako-forest font-semibold;
+        @apply bg-cashdash-gold text-cashdash-forest font-semibold;
         @apply hover:bg-gold-500 active:bg-gold-600;
         @apply transition-all duration-200;
         @apply shadow-sm hover:shadow-glow-gold;
-        @apply focus:ring-2 focus:ring-kassako-gold focus:ring-offset-2;
+        @apply focus:ring-2 focus:ring-cashdash-gold focus:ring-offset-2;
         min-height: 48px;
     }
 
@@ -119,7 +119,7 @@
        ======================================== */
     .runway-counter {
         @apply font-display font-bold;
-        @apply text-kassako-forest;
+        @apply text-cashdash-forest;
         font-variant-numeric: tabular-nums;
         /* Large display for dramatic effect */
         font-size: clamp(4rem, 15vw, 10rem);
@@ -137,7 +137,7 @@
     }
 
     .runway-label {
-        @apply text-kassako-muted font-medium uppercase tracking-widest;
+        @apply text-cashdash-muted font-medium uppercase tracking-widest;
         font-size: clamp(0.875rem, 2vw, 1.125rem);
     }
 
@@ -158,10 +158,10 @@
 
     .feature-icon {
         @apply w-12 h-12 rounded-xl;
-        @apply bg-forest-50 text-kassako-forest;
+        @apply bg-forest-50 text-cashdash-forest;
         @apply flex items-center justify-center;
         @apply mb-4;
-        @apply group-hover:bg-kassako-forest group-hover:text-white;
+        @apply group-hover:bg-cashdash-forest group-hover:text-white;
         @apply transition-colors duration-300;
     }
 
@@ -172,7 +172,7 @@
 
     .step-number {
         @apply w-14 h-14 rounded-full;
-        @apply bg-kassako-forest text-white;
+        @apply bg-cashdash-forest text-white;
         @apply flex items-center justify-center;
         @apply text-xl font-bold;
         @apply mb-4;
@@ -181,7 +181,7 @@
 
     .step-connector {
         @apply hidden md:block absolute top-7 left-1/2;
-        @apply w-full h-0.5 bg-gradient-to-r from-kassako-forest to-kassako-gold;
+        @apply w-full h-0.5 bg-gradient-to-r from-cashdash-forest to-cashdash-gold;
         @apply translate-x-1/2;
     }
 
@@ -190,7 +190,7 @@
        ======================================== */
     .pricing-card {
         @apply bg-white rounded-3xl p-8 md:p-10;
-        @apply border-2 border-kassako-forest;
+        @apply border-2 border-cashdash-forest;
         @apply shadow-elevated;
         @apply relative overflow-hidden;
     }
@@ -198,24 +198,24 @@
     .pricing-card::before {
         content: '';
         @apply absolute top-0 left-0 right-0 h-1.5;
-        @apply bg-gradient-to-r from-kassako-forest via-kassako-gold to-kassako-forest;
+        @apply bg-gradient-to-r from-cashdash-forest via-cashdash-gold to-cashdash-forest;
     }
 
     .pricing-badge {
         @apply inline-flex items-center px-3 py-1;
-        @apply bg-kassako-gold/20 text-kassako-forest;
+        @apply bg-cashdash-gold/20 text-cashdash-forest;
         @apply rounded-full text-sm font-medium;
         @apply mb-4;
     }
 
     .pricing-amount {
-        @apply font-display font-bold text-kassako-forest;
+        @apply font-display font-bold text-cashdash-forest;
         font-size: clamp(2.5rem, 8vw, 4rem);
         line-height: 1;
     }
 
     .pricing-period {
-        @apply text-kassako-muted text-lg;
+        @apply text-cashdash-muted text-lg;
     }
 
     /* ========================================
@@ -228,13 +228,13 @@
     }
 
     .testimonial-quote {
-        @apply text-kassako-text text-lg leading-relaxed;
+        @apply text-cashdash-text text-lg leading-relaxed;
         @apply mb-6;
     }
 
     .testimonial-quote::before {
         content: '"';
-        @apply text-kassako-gold text-4xl font-serif leading-none;
+        @apply text-cashdash-gold text-4xl font-serif leading-none;
         @apply block mb-2;
     }
 
@@ -258,14 +258,14 @@
     .faq-question {
         @apply w-full py-5 text-left;
         @apply flex items-center justify-between;
-        @apply text-kassako-text font-semibold text-lg;
-        @apply hover:text-kassako-forest transition-colors;
+        @apply text-cashdash-text font-semibold text-lg;
+        @apply hover:text-cashdash-forest transition-colors;
         /* Touch target */
         min-height: 56px;
     }
 
     .faq-icon {
-        @apply w-6 h-6 text-kassako-forest;
+        @apply w-6 h-6 text-cashdash-forest;
         @apply transition-transform duration-300;
     }
 
@@ -274,7 +274,7 @@
     }
 
     .faq-answer {
-        @apply pb-5 text-kassako-muted leading-relaxed;
+        @apply pb-5 text-cashdash-muted leading-relaxed;
     }
 
     /* ========================================
@@ -287,7 +287,7 @@
     }
 
     .dashboard-preview-header {
-        @apply bg-kassako-forest px-4 py-3;
+        @apply bg-cashdash-forest px-4 py-3;
         @apply flex items-center gap-2;
     }
 
@@ -296,7 +296,7 @@
     }
 
     .dashboard-preview-content {
-        @apply bg-kassako-cream p-4 md:p-6;
+        @apply bg-cashdash-cream p-4 md:p-6;
     }
 
     /* ========================================
@@ -318,11 +318,11 @@
 
     .section-title {
         @apply font-display text-section-mobile md:text-section;
-        @apply text-kassako-text mb-4;
+        @apply text-cashdash-text mb-4;
     }
 
     .section-subtitle {
-        @apply text-kassako-muted text-lg md:text-xl;
+        @apply text-cashdash-muted text-lg md:text-xl;
         @apply max-w-2xl mx-auto;
     }
 
@@ -338,7 +338,7 @@
        Footer
        ======================================== */
     .footer {
-        @apply bg-kassako-forest text-white;
+        @apply bg-cashdash-forest text-white;
         @apply py-12 md:py-16;
         padding-bottom: max(env(safe-area-inset-bottom), 3rem);
     }
@@ -355,7 +355,7 @@
         @apply inline-flex items-center gap-2 px-4 py-2;
         @apply bg-white rounded-full;
         @apply border border-forest-100;
-        @apply text-sm text-kassako-muted;
+        @apply text-sm text-cashdash-muted;
         @apply shadow-sm;
     }
 
@@ -363,7 +363,7 @@
        CTA Section
        ======================================== */
     .cta-section {
-        @apply bg-kassako-forest text-white;
+        @apply bg-cashdash-forest text-white;
         @apply py-16 md:py-24;
         @apply relative overflow-hidden;
     }
@@ -383,15 +383,15 @@
     }
 
     .status-dot.success {
-        @apply bg-kassako-success;
+        @apply bg-cashdash-success;
     }
 
     .status-dot.warning {
-        @apply bg-kassako-warning;
+        @apply bg-cashdash-warning;
     }
 
     .status-dot.danger {
-        @apply bg-kassako-danger;
+        @apply bg-cashdash-danger;
     }
 
     /* ========================================
@@ -406,7 +406,7 @@
 @layer utilities {
     /* Text gradient utility */
     .text-gradient-gold {
-        @apply bg-gradient-to-r from-kassako-gold to-gold-600 bg-clip-text text-transparent;
+        @apply bg-gradient-to-r from-cashdash-gold to-gold-600 bg-clip-text text-transparent;
     }
 
     /* Backdrop blur variations */

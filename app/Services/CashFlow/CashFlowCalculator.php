@@ -66,7 +66,7 @@ class CashFlowCalculator
 
     protected function estimateCashFromTransactions(): float
     {
-        $received = $this->team->invoices()
+        $received = $this->team->fortnoxInvoices()
             ->where('status', 'paid')
             ->where('paid_date', '>=', now()->subMonths(12))
             ->sum('total');
@@ -81,7 +81,7 @@ class CashFlowCalculator
 
     protected function getAccountsReceivable(): float
     {
-        return $this->team->invoices()
+        return $this->team->fortnoxInvoices()
             ->whereIn('status', ['unpaid', 'overdue'])
             ->sum('total');
     }
@@ -107,7 +107,7 @@ class CashFlowCalculator
 
     protected function calculateAverageDailyIncome(): float
     {
-        $totalReceived = $this->team->invoices()
+        $totalReceived = $this->team->fortnoxInvoices()
             ->where('status', 'paid')
             ->where('paid_date', '>=', now()->subMonths(6))
             ->sum('total');
@@ -194,7 +194,7 @@ class CashFlowCalculator
         $incomePatterns = [];
         $expensePatterns = [];
 
-        $invoices = $this->team->invoices()
+        $invoices = $this->team->fortnoxInvoices()
             ->where('status', 'paid')
             ->where('paid_date', '>=', now()->subYears(2))
             ->get();
@@ -226,7 +226,7 @@ class CashFlowCalculator
 
     protected function getUpcomingReceivables(): array
     {
-        return $this->team->invoices()
+        return $this->team->fortnoxInvoices()
             ->whereIn('status', ['unpaid', 'overdue'])
             ->get()
             ->groupBy(fn ($i) => $i->due_date->format('Y-m'))

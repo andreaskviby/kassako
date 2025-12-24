@@ -181,7 +181,7 @@ class DataEncryptorService
     {
         $count = 0;
 
-        $team->invoices()
+        $team->fortnoxInvoices()
             ->where('is_encrypted', false)
             ->chunkById(100, function ($invoices) use ($dek, $keyVersion, &$count) {
                 foreach ($invoices as $invoice) {

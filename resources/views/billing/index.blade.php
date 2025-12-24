@@ -32,7 +32,7 @@
                 @elseif($subscribed)
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-[#1C1C1C]">Kassako Pro</p>
+                            <p class="text-[#1C1C1C]">CashDash Pro</p>
                             <p class="text-sm text-[#6B6B6B]">149 kr/månad</p>
                         </div>
                         <span class="bg-[#2D7A4F] text-white text-sm px-3 py-1 rounded-full">

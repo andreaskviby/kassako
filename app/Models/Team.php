@@ -57,7 +57,7 @@ class Team extends JetstreamTeam
         return $this->hasOne(CashSnapshot::class)->latestOfMany('snapshot_date');
     }
 
-    public function invoices(): HasMany
+    public function fortnoxInvoices(): HasMany
     {
         return $this->hasMany(FortnoxInvoice::class);
     }

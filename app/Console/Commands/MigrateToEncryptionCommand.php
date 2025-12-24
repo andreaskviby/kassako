@@ -119,7 +119,7 @@ class MigrateToEncryptionCommand extends Command
         $tables = [
             'fortnox_connections' => $team->fortnoxConnection()->count(),
             'cash_snapshots' => $team->cashSnapshots()->count(),
-            'fortnox_invoices' => $team->invoices()->count(),
+            'fortnox_invoices' => $team->fortnoxInvoices()->count(),
             'fortnox_supplier_invoices' => $team->supplierInvoices()->count(),
             'fortnox_orders' => $team->orders()->count(),
             'customer_payment_patterns' => $team->customerPaymentPatterns()->count(),
@@ -128,7 +128,7 @@ class MigrateToEncryptionCommand extends Command
         $encryptedCounts = [
             'fortnox_connections' => $team->fortnoxConnection()->where('is_encrypted', true)->count(),
             'cash_snapshots' => $team->cashSnapshots()->where('is_encrypted', true)->count(),
-            'fortnox_invoices' => $team->invoices()->where('is_encrypted', true)->count(),
+            'fortnox_invoices' => $team->fortnoxInvoices()->where('is_encrypted', true)->count(),
             'fortnox_supplier_invoices' => $team->supplierInvoices()->where('is_encrypted', true)->count(),
             'fortnox_orders' => $team->orders()->where('is_encrypted', true)->count(),
             'customer_payment_patterns' => $team->customerPaymentPatterns()->where('is_encrypted', true)->count(),

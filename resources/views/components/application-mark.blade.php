@@ -1,4 +1,31 @@
 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
-  <path d="M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z" fill="#6875F5"/>
-  <path d="M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z" fill="#6875F5"/>
+    <!-- Background circle with gradient effect -->
+    <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1A3D2E"/>
+            <stop offset="100%" style="stop-color:#2D5A45"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Main circle background -->
+    <circle cx="24" cy="24" r="24" fill="url(#logoGradient)"/>
+
+    <!-- Stylized C shape -->
+    <path d="M28 12C20.268 12 14 18.268 14 26C14 33.732 20.268 40 28 40"
+          stroke="#C4A962"
+          stroke-width="4"
+          stroke-linecap="round"
+          fill="none"/>
+
+    <!-- Chart bars inside the C -->
+    <rect x="20" y="28" width="4" height="8" rx="1" fill="white"/>
+    <rect x="26" y="24" width="4" height="12" rx="1" fill="white"/>
+    <rect x="32" y="20" width="4" height="16" rx="1" fill="#C4A962"/>
+
+    <!-- Upward trend arrow -->
+    <path d="M32 16L36 12M36 12L36 16M36 12L32 12"
+          stroke="#C4A962"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
 </svg>

@@ -26,6 +26,10 @@ Route::middleware([
         ->name('encryption.setup');
     Route::post('/encryption/setup', [EncryptionController::class, 'setup'])
         ->name('encryption.setup.store');
+    Route::post('/encryption/download-recovery', [EncryptionController::class, 'downloadRecovery'])
+        ->name('encryption.download-recovery');
+    Route::get('/encryption/download-recovery-verified', [EncryptionController::class, 'downloadRecoveryVerified'])
+        ->name('encryption.download-recovery-verified');
     Route::get('/encryption/unlock', [EncryptionController::class, 'showUnlock'])
         ->name('encryption.unlock');
     Route::post('/encryption/unlock', [EncryptionController::class, 'unlock'])
@@ -35,17 +39,19 @@ Route::middleware([
     Route::get('/encryption/status', [EncryptionController::class, 'status'])
         ->name('encryption.status');
 
-    // Routes that require encryption to be unlocked
+    // Dashboard - accessible without encryption (shows empty state if no Fortnox)
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+
+    // Fortnox routes - encryption required for connect, handled in controller
+    Route::get('/fortnox/connect', [FortnoxController::class, 'connect'])
+        ->name('fortnox.connect');
+    Route::get('/fortnox/callback', [FortnoxController::class, 'callback'])
+        ->name('fortnox.callback');
+    Route::post('/fortnox/disconnect', [FortnoxController::class, 'disconnect'])
+        ->name('fortnox.disconnect');
+
+    // Routes that require encryption to be unlocked (for managing encrypted data)
     Route::middleware(['encryption.unlocked'])->group(function () {
-        Route::get('/dashboard', Dashboard::class)->name('dashboard');
-
-        Route::get('/fortnox/connect', [FortnoxController::class, 'connect'])
-            ->name('fortnox.connect');
-        Route::get('/fortnox/callback', [FortnoxController::class, 'callback'])
-            ->name('fortnox.callback');
-        Route::post('/fortnox/disconnect', [FortnoxController::class, 'disconnect'])
-            ->name('fortnox.disconnect');
-
         // Encryption management routes
         Route::get('/encryption/change-passphrase', [EncryptionController::class, 'showChangePassphrase'])
             ->name('encryption.change-passphrase');

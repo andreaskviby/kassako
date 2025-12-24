@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /**
  * Encryption Controller
@@ -40,6 +41,61 @@ class EncryptionController extends Controller
         return view('encryption.setup', [
             'team' => $team,
         ]);
+    }
+
+    /**
+     * Download recovery document as PDF.
+     */
+    public function downloadRecovery(Request $request): \Illuminate\Http\Response
+    {
+        $request->validate([
+            'passphrase' => ['required', 'string', 'min:12', 'max:128'],
+        ]);
+
+        $team = $request->user()->currentTeam;
+        $user = $request->user();
+        $passphrase = $request->input('passphrase');
+
+        $pdf = Pdf::loadView('pdf.encryption-recovery', [
+            'team' => $team,
+            'user' => $user,
+            'passphrase' => $passphrase,
+            'createdAt' => now()->format('Y-m-d H:i'),
+        ]);
+
+        $filename = 'CashDash-Recovery-' . Str::slug($team->name) . '-' . now()->format('Y-m-d') . '.pdf';
+
+        return $pdf->download($filename);
+    }
+
+    /**
+     * Download recovery document after verification (from settings page).
+     */
+    public function downloadRecoveryVerified(Request $request): \Illuminate\Http\Response|RedirectResponse
+    {
+        $passphrase = session('recovery_passphrase');
+
+        if (!$passphrase) {
+            return redirect()->route('teams.show', $request->user()->currentTeam)
+                ->with('error', 'Ingen lösenfras hittades. Försök igen.');
+        }
+
+        // Clear the session immediately
+        session()->forget('recovery_passphrase');
+
+        $team = $request->user()->currentTeam;
+        $user = $request->user();
+
+        $pdf = Pdf::loadView('pdf.encryption-recovery', [
+            'team' => $team,
+            'user' => $user,
+            'passphrase' => $passphrase,
+            'createdAt' => now()->format('Y-m-d H:i'),
+        ]);
+
+        $filename = 'CashDash-Recovery-' . Str::slug($team->name) . '-' . now()->format('Y-m-d') . '.pdf';
+
+        return $pdf->download($filename);
     }
 
     /**

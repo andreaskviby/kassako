@@ -1,12 +1,12 @@
-# Kassako Zero-Knowledge Encryption Architecture
+# CashDash Zero-Knowledge Encryption Architecture
 
 ## For Swedish Business Owners: What This Means For You
 
 ### The Simple Explanation
 
-When you use Kassako, your financial data from Fortnox is encrypted with a passphrase that only you know. This means:
+When you use CashDash, your financial data from Fortnox is encrypted with a passphrase that only you know. This means:
 
-1. **We Cannot See Your Data**: Even we (Kassako) cannot read your financial information
+1. **We Cannot See Your Data**: Even we (CashDash) cannot read your financial information
 2. **Your Data is Protected**: If our database were ever compromised, your data would be cryptographically unreadable
 3. **You Have Full Control**: Only you can unlock and view your data
 4. **GDPR Compliant**: When you leave, deleting your key makes all data permanently inaccessible

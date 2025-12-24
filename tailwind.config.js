@@ -14,8 +14,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Kassako Brand Colors
-                'kassako': {
+                // CashDash Brand Colors
+                'cashdash': {
                     'forest': '#1A3D2E',        // Primary - Deep forest green
                     'gold': '#C4A962',          // Accent - Warm gold
                     'cream': '#FDFBF7',         // Background - Warm cream

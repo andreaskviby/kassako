@@ -5,7 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title ?? 'Dashboard' }} - CashDash</title>
+
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="CashDash - Din kassaflödesdashboard för svenska företag. Se hur länge dina pengar räcker.">
+        <meta name="theme-color" content="#1A3D2E">
+        <meta name="robots" content="noindex, nofollow">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/favicon.svg">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

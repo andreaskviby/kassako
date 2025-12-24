@@ -1,4 +1,4 @@
-# Kassako Encryption Implementation Summary
+# CashDash Encryption Implementation Summary
 
 ## Files Created
 

@@ -174,12 +174,12 @@ class FortnoxSyncService
 
     protected function calculatePaymentPatterns(): void
     {
-        $totalRevenue = $this->team->invoices()
+        $totalRevenue = $this->team->fortnoxInvoices()
             ->where('status', '!=', 'cancelled')
             ->where('is_credit', false)
             ->sum('total');
 
-        $patterns = $this->team->invoices()
+        $patterns = $this->team->fortnoxInvoices()
             ->where('status', '!=', 'cancelled')
             ->whereNotNull('customer_number')
             ->select('customer_number', 'customer_name')
