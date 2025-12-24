@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+/* ==========================================================================
+   Kassako Landing Page - Custom Styles
+   Swedish Design Aesthetic: Clean, Trustworthy, Minimal
+   ========================================================================== */
+
+@layer base {
+    /* Smooth scrolling with reduced motion support */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    /* Focus styles for accessibility - WCAG 2.1 AA */
+    :focus-visible {
+        outline: 2px solid #1A3D2E;
+        outline-offset: 2px;
+    }
+
+    /* Selection styling */
+    ::selection {
+        background-color: rgba(196, 169, 98, 0.3);
+        color: #1C1C1C;
+    }
+}
+
+@layer components {
+    /* ========================================
+       Navigation Component
+       ======================================== */
+    .nav-sticky {
+        @apply fixed top-0 left-0 right-0 z-50;
+        @apply bg-kassako-cream/95 backdrop-blur-md;
+        @apply border-b border-forest-100;
+        @apply transition-all duration-300;
+        padding-top: max(env(safe-area-inset-top), 0px);
+    }
+
+    .nav-sticky.scrolled {
+        @apply shadow-sm;
+    }
+
+    .nav-link {
+        @apply text-kassako-text font-medium text-sm;
+        @apply hover:text-kassako-forest transition-colors duration-200;
+        @apply relative;
+    }
+
+    .nav-link::after {
+        content: '';
+        @apply absolute left-0 right-0 bottom-0 h-0.5;
+        @apply bg-kassako-gold scale-x-0 origin-center;
+        @apply transition-transform duration-300;
+    }
+
+    .nav-link:hover::after {
+        @apply scale-x-100;
+    }
+
+    /* ========================================
+       Button Components
+       ======================================== */
+    .btn-primary {
+        @apply inline-flex items-center justify-center;
+        @apply px-6 py-3 rounded-xl;
+        @apply bg-kassako-forest text-white font-semibold;
+        @apply hover:bg-forest-800 active:bg-forest-900;
+        @apply transition-all duration-200;
+        @apply shadow-sm hover:shadow-md;
+        @apply focus:ring-2 focus:ring-kassako-forest focus:ring-offset-2;
+        /* Minimum touch target 48x48 for mobile */
+        min-height: 48px;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center;
+        @apply px-6 py-3 rounded-xl;
+        @apply bg-transparent text-kassako-forest font-semibold;
+        @apply border-2 border-kassako-forest;
+        @apply hover:bg-forest-50 active:bg-forest-100;
+        @apply transition-all duration-200;
+        @apply focus:ring-2 focus:ring-kassako-forest focus:ring-offset-2;
+        min-height: 48px;
+    }
+
+    .btn-gold {
+        @apply inline-flex items-center justify-center;
+        @apply px-6 py-3 rounded-xl;
+        @apply bg-kassako-gold text-kassako-forest font-semibold;
+        @apply hover:bg-gold-500 active:bg-gold-600;
+        @apply transition-all duration-200;
+        @apply shadow-sm hover:shadow-glow-gold;
+        @apply focus:ring-2 focus:ring-kassako-gold focus:ring-offset-2;
+        min-height: 48px;
+    }
+
+    /* ========================================
+       Hero Counter Animation
+       ======================================== */
+    .runway-counter {
+        @apply font-display font-bold;
+        @apply text-kassako-forest;
+        font-variant-numeric: tabular-nums;
+        /* Large display for dramatic effect */
+        font-size: clamp(4rem, 15vw, 10rem);
+        line-height: 1;
+        letter-spacing: -0.03em;
+    }
+
+    .runway-counter-wrapper {
+        @apply relative inline-block;
+    }
+
+    .runway-counter-glow {
+        @apply absolute inset-0 blur-3xl opacity-20;
+        background: radial-gradient(ellipse, #C4A962 0%, transparent 70%);
+    }
+
+    .runway-label {
+        @apply text-kassako-muted font-medium uppercase tracking-widest;
+        font-size: clamp(0.875rem, 2vw, 1.125rem);
+    }
+
+    /* ========================================
+       Card Components
+       ======================================== */
+    .feature-card {
+        @apply bg-white rounded-2xl p-6 md:p-8;
+        @apply border border-forest-100;
+        @apply shadow-card hover:shadow-card-hover;
+        @apply transition-all duration-300;
+    }
+
+    .feature-card:hover {
+        @apply -translate-y-1;
+        @apply border-forest-200;
+    }
+
+    .feature-icon {
+        @apply w-12 h-12 rounded-xl;
+        @apply bg-forest-50 text-kassako-forest;
+        @apply flex items-center justify-center;
+        @apply mb-4;
+        @apply group-hover:bg-kassako-forest group-hover:text-white;
+        @apply transition-colors duration-300;
+    }
+
+    .step-card {
+        @apply relative flex flex-col items-center text-center;
+        @apply p-6;
+    }
+
+    .step-number {
+        @apply w-14 h-14 rounded-full;
+        @apply bg-kassako-forest text-white;
+        @apply flex items-center justify-center;
+        @apply text-xl font-bold;
+        @apply mb-4;
+        @apply shadow-glow-forest;
+    }
+
+    .step-connector {
+        @apply hidden md:block absolute top-7 left-1/2;
+        @apply w-full h-0.5 bg-gradient-to-r from-kassako-forest to-kassako-gold;
+        @apply translate-x-1/2;
+    }
+
+    /* ========================================
+       Pricing Card
+       ======================================== */
+    .pricing-card {
+        @apply bg-white rounded-3xl p-8 md:p-10;
+        @apply border-2 border-kassako-forest;
+        @apply shadow-elevated;
+        @apply relative overflow-hidden;
+    }
+
+    .pricing-card::before {
+        content: '';
+        @apply absolute top-0 left-0 right-0 h-1.5;
+        @apply bg-gradient-to-r from-kassako-forest via-kassako-gold to-kassako-forest;
+    }
+
+    .pricing-badge {
+        @apply inline-flex items-center px-3 py-1;
+        @apply bg-kassako-gold/20 text-kassako-forest;
+        @apply rounded-full text-sm font-medium;
+        @apply mb-4;
+    }
+
+    .pricing-amount {
+        @apply font-display font-bold text-kassako-forest;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        line-height: 1;
+    }
+
+    .pricing-period {
+        @apply text-kassako-muted text-lg;
+    }
+
+    /* ========================================
+       Testimonial Card
+       ======================================== */
+    .testimonial-card {
+        @apply bg-white rounded-2xl p-6 md:p-8;
+        @apply border border-forest-100;
+        @apply shadow-card;
+    }
+
+    .testimonial-quote {
+        @apply text-kassako-text text-lg leading-relaxed;
+        @apply mb-6;
+    }
+
+    .testimonial-quote::before {
+        content: '"';
+        @apply text-kassako-gold text-4xl font-serif leading-none;
+        @apply block mb-2;
+    }
+
+    .testimonial-author {
+        @apply flex items-center gap-4;
+    }
+
+    .testimonial-avatar {
+        @apply w-12 h-12 rounded-full;
+        @apply bg-forest-100;
+        @apply overflow-hidden;
+    }
+
+    /* ========================================
+       FAQ Accordion
+       ======================================== */
+    .faq-item {
+        @apply border-b border-forest-100;
+    }
+
+    .faq-question {
+        @apply w-full py-5 text-left;
+        @apply flex items-center justify-between;
+        @apply text-kassako-text font-semibold text-lg;
+        @apply hover:text-kassako-forest transition-colors;
+        /* Touch target */
+        min-height: 56px;
+    }
+
+    .faq-icon {
+        @apply w-6 h-6 text-kassako-forest;
+        @apply transition-transform duration-300;
+    }
+
+    .faq-item[open] .faq-icon {
+        @apply rotate-180;
+    }
+
+    .faq-answer {
+        @apply pb-5 text-kassako-muted leading-relaxed;
+    }
+
+    /* ========================================
+       Dashboard Preview Mockup
+       ======================================== */
+    .dashboard-preview {
+        @apply relative rounded-2xl overflow-hidden;
+        @apply shadow-elevated;
+        @apply border border-forest-100;
+    }
+
+    .dashboard-preview-header {
+        @apply bg-kassako-forest px-4 py-3;
+        @apply flex items-center gap-2;
+    }
+
+    .dashboard-preview-dot {
+        @apply w-3 h-3 rounded-full;
+    }
+
+    .dashboard-preview-content {
+        @apply bg-kassako-cream p-4 md:p-6;
+    }
+
+    /* ========================================
+       Section Styling
+       ======================================== */
+    .section {
+        @apply py-16 md:py-24 lg:py-32;
+        @apply px-4 md:px-6 lg:px-8;
+    }
+
+    .section-tight {
+        @apply py-12 md:py-16 lg:py-20;
+        @apply px-4 md:px-6 lg:px-8;
+    }
+
+    .section-header {
+        @apply text-center mb-12 md:mb-16;
+    }
+
+    .section-title {
+        @apply font-display text-section-mobile md:text-section;
+        @apply text-kassako-text mb-4;
+    }
+
+    .section-subtitle {
+        @apply text-kassako-muted text-lg md:text-xl;
+        @apply max-w-2xl mx-auto;
+    }
+
+    /* ========================================
+       Container
+       ======================================== */
+    .container-landing {
+        @apply max-w-7xl mx-auto;
+        @apply px-4 md:px-6 lg:px-8;
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .footer {
+        @apply bg-kassako-forest text-white;
+        @apply py-12 md:py-16;
+        padding-bottom: max(env(safe-area-inset-bottom), 3rem);
+    }
+
+    .footer-link {
+        @apply text-forest-200 hover:text-white;
+        @apply transition-colors duration-200;
+    }
+
+    /* ========================================
+       Fortnox Badge
+       ======================================== */
+    .fortnox-badge {
+        @apply inline-flex items-center gap-2 px-4 py-2;
+        @apply bg-white rounded-full;
+        @apply border border-forest-100;
+        @apply text-sm text-kassako-muted;
+        @apply shadow-sm;
+    }
+
+    /* ========================================
+       CTA Section
+       ======================================== */
+    .cta-section {
+        @apply bg-kassako-forest text-white;
+        @apply py-16 md:py-24;
+        @apply relative overflow-hidden;
+    }
+
+    .cta-section::before {
+        content: '';
+        @apply absolute inset-0;
+        background: radial-gradient(ellipse at 30% 50%, rgba(196, 169, 98, 0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at 70% 50%, rgba(196, 169, 98, 0.1) 0%, transparent 50%);
+    }
+
+    /* ========================================
+       Status Indicators
+       ======================================== */
+    .status-dot {
+        @apply w-2 h-2 rounded-full;
+    }
+
+    .status-dot.success {
+        @apply bg-kassako-success;
+    }
+
+    .status-dot.warning {
+        @apply bg-kassako-warning;
+    }
+
+    .status-dot.danger {
+        @apply bg-kassako-danger;
+    }
+
+    /* ========================================
+       Skeleton Loading
+       ======================================== */
+    .skeleton {
+        @apply bg-forest-100 rounded;
+        @apply animate-pulse;
+    }
+}
+
+@layer utilities {
+    /* Text gradient utility */
+    .text-gradient-gold {
+        @apply bg-gradient-to-r from-kassako-gold to-gold-600 bg-clip-text text-transparent;
+    }
+
+    /* Backdrop blur variations */
+    .backdrop-blur-safari {
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+    }
+
+    /* Safe area padding utilities */
+    .pb-safe {
+        padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+    }
+
+    .pt-safe {
+        padding-top: max(env(safe-area-inset-top), 1rem);
+    }
+
+    /* Animation delays for staggered effects */
+    .animation-delay-100 {
+        animation-delay: 100ms;
+    }
+
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+
+    .animation-delay-300 {
+        animation-delay: 300ms;
+    }
+
+    .animation-delay-400 {
+        animation-delay: 400ms;
+    }
+
+    .animation-delay-500 {
+        animation-delay: 500ms;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
