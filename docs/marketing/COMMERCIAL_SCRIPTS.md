@@ -92,7 +92,7 @@ Adresserar den viktigaste frågan för svenska företagare: Är min data säker?
 | 27-30 | Logo och CTA | **Text:** "CashDash.se - Din data, din kontroll" | Kraftfull avslutning |
 
 ### Manusbeskrivning
-Filmen öppnar med en vault-dörr som stängs. Vi ser företagsdata – fakturor, kontrakt, finansiella rapporter – värdefull information. En stor, glänsande låsikon erscheint. Text förklarar: "Zero-Knowledge Encryption innebär att din data krypteras med din egen nyckel, innan den ens lämnar din dator." En split-screen animation visar skillnaden: På vänstra sidan en typisk tjänst där leverantören kan läsa allt. På högra sidan CashDash där datan är oläslig även för oss. Vi ser svenska flaggan, text: "Svenskt företag, svenska servrar, GDPR-säkert." En företagare sover gott om natten.
+Filmen öppnar med en vault-dörr som stängs. Vi ser företagsdata – fakturor, kontrakt, finansiella rapporter – värdefull information. En stor, glänsande låsikon dyker upp. Text förklarar: "Zero-Knowledge Encryption innebär att din data krypteras med din egen nyckel, innan den ens lämnar din dator." En split-screen animation visar skillnaden: På vänstra sidan en typisk tjänst där leverantören kan läsa allt. På högra sidan CashDash där datan är oläslig även för oss. Vi ser svenska flaggan, text: "Svenskt företag, svenska servrar, GDPR-säkert." En företagare sover gott om natten.
 
 **Nyckelbudskap:** Din data är säkrare här än hos andra.
 
@@ -174,7 +174,7 @@ Använd följande typer av visuellt material:
 - **Logo:** Ska alltid synas i minst 2 sekunder
 - **Färger:** Håll sig till den definierade paletten
 - **Tone:** Professionell, pålitlig, empatisk, svensk
-- **Ingen oväntat innehåll:** Undvik kontroversiella ämnen
+- **Inget oväntat innehåll:** Undvik kontroversiella ämnen
 
 ### Call-to-Action (CTA)
 Varje film måste sluta med:
