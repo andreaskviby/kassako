@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class FortnoxService
 {
-    protected FortnoxConnection $connection;
+    protected ?FortnoxConnection $connection = null;
     protected string $baseUrl;
 
     public function __construct()
