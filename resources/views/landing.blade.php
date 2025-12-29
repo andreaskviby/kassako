@@ -10,7 +10,7 @@
     <meta name="title" content="CashDash - Kassaflödesdashboard för Svenska Företag | Fortnox Integration">
     <meta name="description" content="Se hur länge dina pengar räcker med CashDash. Koppla Fortnox och få AI-drivna kassaflödesprognoser, realtidsinsikter och 12-månaders prognoser. Prova gratis i 14 dagar.">
     <meta name="keywords" content="kassaflöde, kassaflödesprognos, Fortnox, likviditetsprognos, cash runway, företagsekonomi, finansiell planering, småföretag Sverige, bokföring, AI prognos, kassaposition">
-    <meta name="author" content="Stafe Group AB">
+    <meta name="author" content="Stafe Development AB">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#1A3D2E">
     <meta name="language" content="Swedish">
@@ -68,7 +68,7 @@
             "@context" => "https://schema.org",
             "@type" => "Organization",
             "name" => "CashDash",
-            "legalName" => "Stafe Group AB",
+            "legalName" => "Stafe Development AB",
             "url" => "https://cashdash.se",
             "logo" => "https://cashdash.se/images/logo.svg",
             "description" => "Kassaflödesdashboard för svenska företag med Fortnox-integration",
@@ -1241,7 +1241,7 @@
             <!-- Bottom Bar -->
             <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="text-forest-200 text-sm text-center md:text-left">
-                    <p>&copy; {{ date('Y') }} Stafe Group AB. Alla rättigheter förbehållna.</p>
+                    <p>&copy; {{ date('Y') }} Stafe Development AB. Alla rättigheter förbehållna.</p>
                     <p class="text-forest-300 text-xs mt-1">Blomstergatan 6, 591 70 Motala</p>
                 </div>
                 <div class="flex items-center gap-6">

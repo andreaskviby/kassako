@@ -481,7 +481,7 @@
         <!-- Footer -->
         <footer class="py-6 text-center">
             <p class="text-sm text-cashdash-muted">
-                En tjänst från <strong>Stafe Group AB</strong> · AES-256 kryptering · Svensk datalagring
+                En tjänst från <strong>Stafe Development AB</strong> · AES-256 kryptering · Svensk datalagring
             </p>
         </footer>
     </div>

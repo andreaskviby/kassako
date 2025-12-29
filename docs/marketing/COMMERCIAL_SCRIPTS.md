@@ -216,7 +216,7 @@ För varje manus, testa följande varianter:
 ## Juridiska Krav
 
 ### Obligatoriska Element
-- Företagsnamn: Stafe Group AB måste nämnas i sluttexter
+- Företagsnamn: Stafe Development AB måste nämnas i sluttexter
 - Ansvarsfriskrivning (om nödvändigt): "Prognoser är estimat"
 - Varumärken: Fortnox® används med tillstånd
 

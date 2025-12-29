@@ -10,7 +10,7 @@
         <!-- SEO Meta Tags -->
         <meta name="description" content="{{ $metaDescription ?? 'CashDash hjälper svenska företag att förstå sitt kassaflöde. Koppla Fortnox och se hur länge dina pengar räcker med AI-drivna insikter.' }}">
         <meta name="keywords" content="kassaflöde, kassaflödesprognos, Fortnox integration, likviditet, företagsekonomi, finansiell planering, svenska företag, cash flow, runway">
-        <meta name="author" content="Stafe Group AB">
+        <meta name="author" content="Stafe Development AB">
         <meta name="robots" content="index, follow">
         <meta name="theme-color" content="#1A3D2E">
 
@@ -68,7 +68,7 @@
             ],
             "provider" => [
                 "@type" => "Organization",
-                "name" => "Stafe Group AB",
+                "name" => "Stafe Development AB",
                 "address" => [
                     "@type" => "PostalAddress",
                     "streetAddress" => "Blomstergatan 6",

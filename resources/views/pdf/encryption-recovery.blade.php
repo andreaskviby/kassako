@@ -437,7 +437,7 @@
                 </div>
                 <div class="footer-right">
                     <div class="footer-logo">Cash<span style="color: #C4A962;">Dash</span></div>
-                    <div class="footer-company">Stafe Group AB | Blomstergatan 6, 591 70 Motala</div>
+                    <div class="footer-company">Stafe Development AB | Blomstergatan 6, 591 70 Motala</div>
                 </div>
             </div>
         </div>

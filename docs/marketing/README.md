@@ -88,7 +88,7 @@ Target KPIs:
 
 For questions about these materials:
 - **Email:** hello@cashdash.se
-- **Company:** Stafe Group AB
+- **Company:** Stafe Development AB
 - **Website:** https://cashdash.se
 
 ---

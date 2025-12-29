@@ -146,10 +146,10 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 ## Licens
 
-Proprietar - Stafe Group AB
+Proprietar - Stafe Development AB
 
 ## Kontakt
 
 - **Webb:** https://cashdash.se
-- **Foretag:** Stafe Group AB
+- **Foretag:** Stafe Development AB
 - **Adress:** Blomstergatan 6, 591 70 Motala
