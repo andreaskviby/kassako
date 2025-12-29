@@ -8,6 +8,7 @@ use App\Services\Encryption\TeamEncryptionService;
 use App\Services\Fortnox\FortnoxService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class FortnoxController extends Controller
@@ -48,12 +49,27 @@ class FortnoxController extends Controller
 
     public function callback(Request $request)
     {
+        Log::info('Fortnox callback received', [
+            'state' => $request->state,
+            'session_state' => session('fortnox_oauth_state'),
+            'has_code' => $request->has('code'),
+            'has_error' => $request->has('error'),
+        ]);
+
         if ($request->state !== session('fortnox_oauth_state')) {
+            Log::warning('Fortnox OAuth state mismatch', [
+                'request_state' => $request->state,
+                'session_state' => session('fortnox_oauth_state'),
+            ]);
             return redirect()->route('dashboard')
                 ->with('error', 'Ogiltig OAuth-förfrågan. Försök igen.');
         }
 
         if ($request->has('error')) {
+            Log::error('Fortnox OAuth error', [
+                'error' => $request->error,
+                'description' => $request->error_description,
+            ]);
             return redirect()->route('dashboard')
                 ->with('error', 'Fortnox-anslutningen avbröts: ' . $request->error_description);
         }
@@ -61,7 +77,9 @@ class FortnoxController extends Controller
         $team = Auth::user()->currentTeam;
 
         try {
+            Log::info('Exchanging Fortnox code for tokens');
             $tokens = FortnoxService::exchangeCodeForTokens($request->code);
+            Log::info('Fortnox tokens received', ['expires_in' => $tokens['expires_in'] ?? 'unknown']);
 
             FortnoxConnection::updateOrCreate(
                 ['team_id' => $team->id],
@@ -74,11 +92,16 @@ class FortnoxController extends Controller
                 ]
             );
 
+            Log::info('Fortnox connection saved', ['team_id' => $team->id]);
             SyncFortnoxData::dispatch($team);
 
             return redirect()->route('dashboard')
                 ->with('success', 'Fortnox kopplat! Din data synkroniseras nu...');
         } catch (\Exception $e) {
+            Log::error('Fortnox connection failed', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
             return redirect()->route('dashboard')
                 ->with('error', 'Kunde inte koppla Fortnox: ' . $e->getMessage());
         }
