@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|plus-jakarta-sans:500,600,700,800" rel="stylesheet" />
 
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-gradient-to-br from-cashdash-cream via-white to-forest-50">
@@ -243,8 +246,8 @@
                                 <button type="button"
                                         @click="step = 2"
                                         :disabled="!canProceedStep2"
-                                        class="w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2"
-                                        :class="canProceedStep2 ? 'bg-cashdash-forest hover:bg-forest-700 shadow-lg shadow-cashdash-forest/30' : 'bg-gray-300 cursor-not-allowed'">
+                                        class="w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2"
+                                        :class="canProceedStep2 ? 'bg-[#1A3D2E] hover:bg-[#2D5A45] text-white shadow-lg' : 'bg-gray-300 text-gray-500 cursor-not-allowed'">
                                     Fortsätt till säker lagring
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>

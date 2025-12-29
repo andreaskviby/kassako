@@ -6,6 +6,15 @@ use App\Http\Controllers\FortnoxController;
 use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 
+// Legal pages
+Route::get('/legal/user-agreement', function () {
+    $markdown = file_get_contents(base_path('docs/legal/user-agreement.md'));
+    return view('legal.document', [
+        'title' => 'Användaravtal',
+        'content' => \Illuminate\Support\Str::markdown($markdown),
+    ]);
+})->name('legal.user-agreement');
+
 Route::get('/', function () {
     // Get actual team count and add 5% for display
     $actualCount = \App\Models\Team::count();
