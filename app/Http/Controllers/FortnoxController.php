@@ -70,8 +70,15 @@ class FortnoxController extends Controller
                 'error' => $request->error,
                 'description' => $request->error_description,
             ]);
-            return redirect()->route('dashboard')
-                ->with('error', 'Fortnox-anslutningen avbröts: ' . $request->error_description);
+
+            $errorMessage = match ($request->error) {
+                'error_missing_app_license' => 'Ditt Fortnox-konto saknar nödvändiga licenser för att använda CashDash. Kontrollera att du har rätt abonnemang i Fortnox.',
+                'access_denied' => 'Du nekade åtkomst till Fortnox. Försök igen om du vill ansluta.',
+                'invalid_scope' => 'CashDash begär behörigheter som ditt Fortnox-konto inte stödjer.',
+                default => 'Fortnox-anslutningen misslyckades: ' . ($request->error_description ?? $request->error),
+            };
+
+            return redirect()->route('dashboard')->with('error', $errorMessage);
         }
 
         $team = Auth::user()->currentTeam;

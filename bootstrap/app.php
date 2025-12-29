@@ -15,6 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'subscribed' => \App\Http\Middleware\EnsureTeamSubscribed::class,
         ]);
+
+        $middleware->validateCsrfTokens(except: [
+            'stripe/webhook',
+            'fortnox/webhook',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

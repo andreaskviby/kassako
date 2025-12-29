@@ -3,6 +3,7 @@
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\EncryptionController;
 use App\Http\Controllers\FortnoxController;
+use App\Http\Controllers\FortnoxWebhookController;
 use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 
@@ -81,3 +82,6 @@ Route::middleware([
 
 Route::post('/stripe/webhook', [\Laravel\Cashier\Http\Controllers\WebhookController::class, 'handleWebhook'])
     ->name('cashier.webhook');
+
+Route::post('/fortnox/webhook', [FortnoxWebhookController::class, 'handle'])
+    ->name('fortnox.webhook');
