@@ -275,7 +275,7 @@
 
                     <!-- Hero Description -->
                     <p class="text-lg md:text-xl text-cashdash-muted max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-300">
-                        CashDash kopplar till ditt Fortnox och ger dig realtidsinsikter om ditt kassaflode.
+                        CashDash kopplar till ditt Fortnox och ger dig realtidsinsikter om ditt kassaflöde.
                         Fatta smartare finansiella beslut med AI-drivna prognoser.
                     </p>
 
@@ -688,7 +688,7 @@
                                 <div class="w-8 h-8 rounded-full bg-gradient-to-br from-forest-400 to-gold-400 border-2 border-white"></div>
                             </div>
                             <p class="text-sm text-cashdash-text">
-                                <strong>{{ number_format($companyCount, 0, ',', ' ') }}+ foretag</strong> anvander CashDash
+                                <strong>{{ number_format($companyCount, 0, ',', ' ') }}+ företag</strong> använder CashDash
                             </p>
                         </div>
                     </div>
@@ -1044,8 +1044,8 @@
         <section class="section bg-white" aria-labelledby="testimonials-heading">
             <div class="container-landing">
                 <div class="section-header">
-                    <h2 id="testimonials-heading" class="section-title">Foretagare litar pa CashDash</h2>
-                    <p class="section-subtitle">Hor vad vara kunder sager</p>
+                    <h2 id="testimonials-heading" class="section-title">Företagare litar på CashDash</h2>
+                    <p class="section-subtitle">Hör vad våra kunder säger</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -1135,7 +1135,7 @@
                             ],
                             [
                                 'question' => 'Fungerar det för mitt företag?',
-                                'answer' => 'CashDash ar perfekt for smaforetag, konsulter, frilansare och startups som anvander Fortnox. Om du har Fortnox och vill ha battre koll pa ditt kassaflode, sa ar CashDash for dig.'
+                                'answer' => 'CashDash är perfekt för småföretag, konsulter, frilansare och startups som använder Fortnox. Om du har Fortnox och vill ha bättre koll på ditt kassaflöde, så är CashDash för dig.'
                             ],
                         ];
                     @endphp
@@ -1200,7 +1200,7 @@
                         <span class="font-display font-bold text-xl text-white">Cash<span class="text-[#C4A962]">Dash</span></span>
                     </a>
                     <p class="text-forest-200 text-sm">
-                        Din kassaflodesdashboard for svenska foretag. Koppla Fortnox och fa full kontroll.
+                        Din kassaflödesdashboard för svenska företag. Koppla Fortnox och få full kontroll.
                     </p>
                 </div>
 

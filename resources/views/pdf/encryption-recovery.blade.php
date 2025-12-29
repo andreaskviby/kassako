@@ -344,7 +344,7 @@
         <div class="header">
             <div class="header-left">
                 <div class="logo-text">Cash<span class="logo-accent">Dash</span></div>
-                <div class="header-subtitle">Din kassaflodesdashboard for svenska foretag</div>
+                <div class="header-subtitle">Din kassaflödesdashboard för svenska företag</div>
             </div>
             <div class="header-right">
                 <div class="confidential-badge">KONFIDENTIELLT</div>
@@ -355,8 +355,8 @@
         <div class="title-section">
             <div class="title">Krypteringsnyckeldokument</div>
             <div class="title-description">
-                Detta dokument innehaller din personliga krypteringsnyckel for CashDash.<br>
-                Forvara det sakert - det ar det enda sattet att aterfa atkomst till dina data.
+                Detta dokument innehåller din personliga krypteringsnyckel för CashDash.<br>
+                Förvara det säkert - det är det enda sättet att återfå åtkomst till dina data.
             </div>
         </div>
 
@@ -364,7 +364,7 @@
         <div class="info-box">
             <div class="info-box-header">Kontoinformation</div>
             <div class="info-row">
-                <div class="info-label">Foretag:</div>
+                <div class="info-label">Företag:</div>
                 <div class="info-value">{{ $team->name }}</div>
             </div>
             <div class="info-row">
@@ -388,7 +388,7 @@
                 <div class="passphrase-value">{{ $passphrase }}</div>
             </div>
             <div class="passphrase-warning">
-                Skriv ner denna nyckel pa ett sakert stalle eller forvara detta dokument i ett lasat utrymme.
+                Skriv ner denna nyckel på ett säkert ställe eller förvara detta dokument i ett låst utrymme.
             </div>
         </div>
 
@@ -398,7 +398,7 @@
             <div class="security-text">
                 <div class="security-title">Zero-Knowledge Kryptering (AES-256)</div>
                 <div class="security-desc">
-                    Din data krypteras lokalt innan den lagras. Varken CashDash eller nagon annan kan lasa dina data utan denna nyckel.
+                    Din data krypteras lokalt innan den lagras. Varken CashDash eller någon annan kan läsa dina data utan denna nyckel.
                 </div>
             </div>
         </div>
@@ -407,21 +407,21 @@
         <div class="warning-section">
             <div class="warning-title">VIKTIGA VARNINGAR</div>
             <ul class="warning-list">
-                <li>Om du forlorar denna nyckel finns det INGET SATT att aterfa dina krypterade data</li>
-                <li>CashDash har ingen kopia av din nyckel och kan inte hjalpa dig aterfa den</li>
-                <li>Dela ALDRIG denna nyckel med nagon som du inte litar pa fullstandigt</li>
-                <li>Om du misstanker att nagon har fatt tillgang till din nyckel, byt den omedelbart</li>
+                <li>Om du förlorar denna nyckel finns det INGET SÄTT att återfå dina krypterade data</li>
+                <li>CashDash har ingen kopia av din nyckel och kan inte hjälpa dig återfå den</li>
+                <li>Dela ALDRIG denna nyckel med någon som du inte litar på fullständigt</li>
+                <li>Om du misstänker att någon har fått tillgång till din nyckel, byt den omedelbart</li>
             </ul>
         </div>
 
         <!-- Instructions Section -->
         <div class="instructions-section">
-            <div class="instructions-title">SA HAR FORVARAR DU DOKUMENTET SAKERT</div>
+            <div class="instructions-title">SÅ HÄR FÖRVARAR DU DOKUMENTET SÄKERT</div>
             <ul class="instructions-list">
-                <li><span class="step-number">1</span> Skriv ut detta dokument och forvara det i ett brandsaker kassaskep eller bankfack</li>
-                <li><span class="step-number">2</span> Alternativt, spara PDF-filen pa en krypterad USB-enhet som forvaras separat</li>
-                <li><span class="step-number">3</span> Overvaeg att ha tva kopior pa olika fysiska platser</li>
-                <li><span class="step-number">4</span> Ta bort PDF-filen fran din dator efter att du forvarar den sakert</li>
+                <li><span class="step-number">1</span> Skriv ut detta dokument och förvara det i ett brandsäkert kassaskåp eller bankfack</li>
+                <li><span class="step-number">2</span> Alternativt, spara PDF-filen på en krypterad USB-enhet som förvaras separat</li>
+                <li><span class="step-number">3</span> Överväg att ha två kopior på olika fysiska platser</li>
+                <li><span class="step-number">4</span> Ta bort PDF-filen från din dator efter att du förvarar den säkert</li>
             </ul>
         </div>
 
