@@ -934,7 +934,7 @@
                         style: { fontSize: '11px', colors: ['#6B6B6B'] }
                     },
                     xaxis: {
-                        categories: ['TechStart AB', 'Byggteamet', 'Konsult Plus', 'Lindqvist AB', 'Svensson & Co', 'DesignByrån'],
+                        categories: ['Kund A', 'Kund B', 'Kund C', 'Kund D', 'Kund E', 'Kund F'],
                         labels: { show: false },
                         axisBorder: { show: false },
                         axisTicks: { show: false }
@@ -1059,8 +1059,8 @@
                                 <div class="w-full h-full bg-gradient-to-br from-forest-300 to-forest-500"></div>
                             </div>
                             <div>
-                                <p class="font-semibold text-cashdash-text">Anna Lindqvist</p>
-                                <p class="text-sm text-cashdash-muted">VD, Lindqvist Konsult AB</p>
+                                <p class="font-semibold text-cashdash-text">Anna L.</p>
+                                <p class="text-sm text-cashdash-muted">VD</p>
                             </div>
                         </footer>
                     </article>
@@ -1075,8 +1075,8 @@
                                 <div class="w-full h-full bg-gradient-to-br from-gold-300 to-gold-500"></div>
                             </div>
                             <div>
-                                <p class="font-semibold text-cashdash-text">Erik Johansson</p>
-                                <p class="text-sm text-cashdash-muted">Grundare, Byggteamet i Skövde</p>
+                                <p class="font-semibold text-cashdash-text">Erik J.</p>
+                                <p class="text-sm text-cashdash-muted">Grundare</p>
                             </div>
                         </footer>
                     </article>
@@ -1091,8 +1091,8 @@
                                 <div class="w-full h-full bg-gradient-to-br from-forest-400 to-gold-400"></div>
                             </div>
                             <div>
-                                <p class="font-semibold text-cashdash-text">Maria Svensson</p>
-                                <p class="text-sm text-cashdash-muted">CFO, TechStart AB</p>
+                                <p class="font-semibold text-cashdash-text">Maria S.</p>
+                                <p class="text-sm text-cashdash-muted">CFO</p>
                             </div>
                         </footer>
                     </article>
