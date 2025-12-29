@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\CashSnapshot;
+use App\Models\FortnoxInvoice;
 use App\Services\AI\InsightsGenerator;
 use App\Services\CashFlow\CashFlowCalculator;
 use Illuminate\Support\Facades\Auth;
@@ -135,16 +136,111 @@ class Dashboard extends Component
 
     public function getPaymentPatternsDataProperty(): array
     {
-        // In production, this would analyze actual customer payment patterns
-        // For now, return sample data
+        $team = Auth::user()->currentTeam;
+        $patterns = $team->customerPaymentPatterns()
+            ->orderByDesc('total_revenue')
+            ->limit(6)
+            ->get();
+
+        if ($patterns->isEmpty()) {
+            return [
+                ['name' => 'Ingen data', 'days' => 0],
+            ];
+        }
+
+        return $patterns->map(fn ($p) => [
+            'name' => $p->customer_name === '[ENCRYPTED]' ? 'Kund ' . $p->customer_number : $p->customer_name,
+            'days' => max(0, $p->avg_days_to_pay ?? 0),
+        ])->toArray();
+    }
+
+    public function getOutstandingInvoicesProperty(): array
+    {
+        $team = Auth::user()->currentTeam;
+
+        $unpaid = $team->fortnoxInvoices()
+            ->where('status', 'unpaid')
+            ->selectRaw('COUNT(*) as count, COALESCE(SUM(total), 0) as total')
+            ->first();
+
+        $overdue = $team->fortnoxInvoices()
+            ->where('status', 'overdue')
+            ->selectRaw('COUNT(*) as count, COALESCE(SUM(total), 0) as total')
+            ->first();
+
         return [
-            ['name' => 'Snabb AB', 'days' => 3],
-            ['name' => 'Normal Konsult', 'days' => 8],
-            ['name' => 'Byggteamet', 'days' => 12],
-            ['name' => 'Design & Co', 'days' => 5],
-            ['name' => 'Sen Betalare AB', 'days' => 15],
-            ['name' => 'Medel Service', 'days' => 7],
+            'unpaid_count' => $unpaid->count ?? 0,
+            'unpaid_total' => $unpaid->total ?? 0,
+            'overdue_count' => $overdue->count ?? 0,
+            'overdue_total' => $overdue->total ?? 0,
+            'total_count' => ($unpaid->count ?? 0) + ($overdue->count ?? 0),
+            'total_amount' => ($unpaid->total ?? 0) + ($overdue->total ?? 0),
         ];
+    }
+
+    public function getAgingAnalysisProperty(): array
+    {
+        $team = Auth::user()->currentTeam;
+
+        $invoices = $team->fortnoxInvoices()
+            ->whereIn('status', ['unpaid', 'overdue'])
+            ->get();
+
+        $aging = [
+            '0-30' => ['count' => 0, 'total' => 0],
+            '31-60' => ['count' => 0, 'total' => 0],
+            '61-90' => ['count' => 0, 'total' => 0],
+            '90+' => ['count' => 0, 'total' => 0],
+        ];
+
+        $totalAmount = 0;
+
+        foreach ($invoices as $invoice) {
+            $daysOld = $invoice->invoice_date->diffInDays(now());
+            $amount = $invoice->total;
+            $totalAmount += $amount;
+
+            if ($daysOld <= 30) {
+                $aging['0-30']['count']++;
+                $aging['0-30']['total'] += $amount;
+            } elseif ($daysOld <= 60) {
+                $aging['31-60']['count']++;
+                $aging['31-60']['total'] += $amount;
+            } elseif ($daysOld <= 90) {
+                $aging['61-90']['count']++;
+                $aging['61-90']['total'] += $amount;
+            } else {
+                $aging['90+']['count']++;
+                $aging['90+']['total'] += $amount;
+            }
+        }
+
+        foreach ($aging as $key => &$data) {
+            $data['percentage'] = $totalAmount > 0
+                ? round(($data['total'] / $totalAmount) * 100)
+                : 0;
+        }
+
+        return $aging;
+    }
+
+    public function getOverdueInvoicesListProperty(): array
+    {
+        $team = Auth::user()->currentTeam;
+
+        return $team->fortnoxInvoices()
+            ->where('status', 'overdue')
+            ->orderBy('due_date')
+            ->limit(5)
+            ->get()
+            ->map(fn ($inv) => [
+                'document_number' => $inv->document_number,
+                'customer_name' => $inv->customer_name === '[ENCRYPTED]' ? 'Kund ' . $inv->customer_number : $inv->customer_name,
+                'total' => $inv->total,
+                'due_date' => $inv->due_date->format('Y-m-d'),
+                'days_overdue' => $inv->due_date->diffInDays(now()),
+            ])
+            ->toArray();
     }
 
     private function getDefaultChartData(): array

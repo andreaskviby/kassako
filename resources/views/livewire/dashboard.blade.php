@@ -221,6 +221,103 @@
                     </div>
                 </div>
 
+                {{-- Outstanding Invoices Section --}}
+                <div class="bg-white rounded-2xl p-5 md:p-6 border border-forest-100 shadow-card">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                        <div>
+                            <h3 class="font-semibold text-cashdash-text text-lg">Utestående fakturor</h3>
+                            <p class="text-cashdash-muted text-sm">Obetalda och förfallna kundfordringar</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        {{-- Unpaid Invoices --}}
+                        <div class="bg-forest-50 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-1">
+                                <svg class="w-4 h-4 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <span class="text-cashdash-muted text-xs font-medium">Obetalda</span>
+                            </div>
+                            <p class="font-display text-2xl font-bold text-cashdash-forest">{{ $this->outstandingInvoices['unpaid_count'] }}</p>
+                            <p class="text-cashdash-muted text-xs">{{ number_format($this->outstandingInvoices['unpaid_total'], 0, ',', ' ') }} kr</p>
+                        </div>
+
+                        {{-- Overdue Invoices --}}
+                        <div class="bg-red-50 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-1">
+                                <svg class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span class="text-cashdash-muted text-xs font-medium">Förfallna</span>
+                            </div>
+                            <p class="font-display text-2xl font-bold text-red-500">{{ $this->outstandingInvoices['overdue_count'] }}</p>
+                            <p class="text-cashdash-muted text-xs">{{ number_format($this->outstandingInvoices['overdue_total'], 0, ',', ' ') }} kr</p>
+                        </div>
+
+                        {{-- Total Outstanding --}}
+                        <div class="bg-cashdash-gold/10 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-1">
+                                <svg class="w-4 h-4 text-cashdash-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                <span class="text-cashdash-muted text-xs font-medium">Totalt utestående</span>
+                            </div>
+                            <p class="font-display text-2xl font-bold text-cashdash-text">{{ $this->outstandingInvoices['total_count'] }}</p>
+                            <p class="text-cashdash-muted text-xs">{{ number_format($this->outstandingInvoices['total_amount'], 0, ',', ' ') }} kr</p>
+                        </div>
+
+                        {{-- Average Days --}}
+                        <div class="bg-gray-50 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-1">
+                                <svg class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span class="text-cashdash-muted text-xs font-medium">Åldringsanalys</span>
+                            </div>
+                            <div class="space-y-1 mt-2">
+                                @foreach($this->agingAnalysis as $period => $data)
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex-1 bg-gray-200 rounded-full h-2 overflow-hidden">
+                                            <div class="h-full rounded-full {{ $period === '90+' ? 'bg-red-500' : ($period === '61-90' ? 'bg-orange-500' : ($period === '31-60' ? 'bg-yellow-500' : 'bg-cashdash-forest')) }}"
+                                                 style="width: {{ $data['percentage'] }}%"></div>
+                                        </div>
+                                        <span class="text-xs text-cashdash-muted w-16">{{ $period }}d</span>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Overdue Invoices List --}}
+                    @if(count($this->overdueInvoicesList) > 0)
+                        <div class="border-t border-forest-100 pt-4">
+                            <h4 class="text-sm font-medium text-cashdash-text mb-3 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                                Förfallna fakturor som kräver åtgärd
+                            </h4>
+                            <div class="space-y-2">
+                                @foreach($this->overdueInvoicesList as $invoice)
+                                    <div class="flex items-center justify-between bg-red-50/50 rounded-lg px-3 py-2">
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-sm font-medium text-cashdash-text">#{{ $invoice['document_number'] }}</span>
+                                            <span class="text-sm text-cashdash-muted">{{ $invoice['customer_name'] }}</span>
+                                        </div>
+                                        <div class="flex items-center gap-4">
+                                            <span class="text-sm font-semibold text-cashdash-text">{{ number_format($invoice['total'], 0, ',', ' ') }} kr</span>
+                                            <span class="text-xs px-2 py-1 bg-red-100 text-red-700 rounded-full font-medium">
+                                                {{ $invoice['days_overdue'] }} dagar försenad
+                                            </span>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                </div>
+
                 {{-- Charts Row --}}
                 <div class="grid lg:grid-cols-3 gap-4 md:gap-6">
                     {{-- Main Cash Flow Chart --}}
