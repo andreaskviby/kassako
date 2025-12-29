@@ -36,7 +36,7 @@ class FortnoxSyncService
 
             $this->syncCompanyInfo();
             $this->syncInvoices();
-            $this->syncSupplierInvoices();
+            $this->trySyncSupplierInvoices();
             $this->syncOrders();
             $this->calculatePaymentPatterns();
 
@@ -105,6 +105,18 @@ class FortnoxSyncService
                     'is_credit' => ($invoice['Total'] ?? 0) < 0,
                 ]
             );
+        }
+    }
+
+    protected function trySyncSupplierInvoices(): void
+    {
+        try {
+            $this->syncSupplierInvoices();
+        } catch (\Exception $e) {
+            Log::warning('Supplier invoices sync skipped - scope may not be enabled', [
+                'team_id' => $this->team->id,
+                'error' => $e->getMessage(),
+            ]);
         }
     }
 
