@@ -60,6 +60,7 @@ class Dashboard extends Component
     public function setChartPeriod(string $period): void
     {
         $this->chartPeriod = $period;
+        $this->dispatch('charts-updated', chartData: $this->cashFlowChartData);
     }
 
     public function refreshData(): void
@@ -121,19 +122,28 @@ class Dashboard extends Component
         }
 
         $forecast = $this->snapshot->monthly_forecast;
+        $periodMonths = (int) $this->chartPeriod;
+
+        // Limit forecast to selected period
+        $forecast = array_slice($forecast, 0, $periodMonths);
+
         $months = [];
         $actual = [];
         $projected = [];
         $minValues = [];
         $maxValues = [];
 
-        $currentMonth = now()->month;
+        // Determine split point based on period
+        $actualMonths = match ($periodMonths) {
+            3 => 2,
+            6 => 3,
+            default => 6,
+        };
 
         foreach ($forecast as $index => $month) {
             $months[] = $month['month_name'];
 
-            // First 6 months are "actual", rest are projections
-            if ($index < 6) {
+            if ($index < $actualMonths) {
                 $actual[] = $month['projected_balance'];
                 $projected[] = null;
                 $minValues[] = null;
@@ -141,15 +151,14 @@ class Dashboard extends Component
             } else {
                 $actual[] = null;
                 $projected[] = $month['projected_balance'];
-                // Calculate min/max as ±15% variance
                 $minValues[] = (int) ($month['projected_balance'] * 0.85);
                 $maxValues[] = (int) ($month['projected_balance'] * 1.15);
             }
         }
 
         // Connect actual to projected at transition point
-        if (isset($actual[5]) && $actual[5] !== null) {
-            $projected[5] = $actual[5];
+        if ($actualMonths > 0 && isset($actual[$actualMonths - 1]) && $actual[$actualMonths - 1] !== null) {
+            $projected[$actualMonths - 1] = $actual[$actualMonths - 1];
         }
 
         return [

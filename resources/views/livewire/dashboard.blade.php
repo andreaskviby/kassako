@@ -497,9 +497,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDashboardCharts();
 
     // Re-initialize charts when Livewire updates
-    Livewire.on('charts-updated', () => {
+    Livewire.on('charts-updated', (event) => {
         setTimeout(() => {
-            initializeDashboardCharts();
+            if (event && event.chartData) {
+                updateCashflowChart(event.chartData);
+            } else {
+                initializeDashboardCharts();
+            }
         }, 100);
     });
 });
@@ -773,6 +777,22 @@ function initializeDashboardCharts() {
         window.runwaySparkline.render();
     }
     @endif
+}
+
+function updateCashflowChart(chartData) {
+    if (window.cashflowChart && chartData) {
+        window.cashflowChart.updateOptions({
+            xaxis: {
+                categories: chartData.months
+            }
+        });
+        window.cashflowChart.updateSeries([
+            { name: 'Faktiskt', data: chartData.actual },
+            { name: 'Prognos', data: chartData.projected },
+            { name: 'Min', data: chartData.min },
+            { name: 'Max', data: chartData.max }
+        ]);
+    }
 }
 
 </script>
