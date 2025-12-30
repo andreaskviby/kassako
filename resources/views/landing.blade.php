@@ -4,18 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>CashDash - Kassaflödesdashboard för Svenska Företag | Fortnox Integration</title>
+    <title>CashDash - AI-Driven Kassaflödesanalys för Fortnox | Sveriges Smartaste Likviditetsprognos</title>
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="CashDash - Kassaflödesdashboard för Svenska Företag | Fortnox Integration">
-    <meta name="description" content="Se hur länge dina pengar räcker med CashDash. Koppla Fortnox och få AI-drivna kassaflödesprognoser, realtidsinsikter och 12-månaders prognoser. Prova gratis i 14 dagar.">
-    <meta name="keywords" content="kassaflöde, kassaflödesprognos, Fortnox, likviditetsprognos, cash runway, företagsekonomi, finansiell planering, småföretag Sverige, bokföring, AI prognos, kassaposition">
+    <meta name="title" content="CashDash - AI-Driven Kassaflödesanalys för Fortnox | Sveriges Smartaste Likviditetsprognos">
+    <meta name="description" content="Få AI-drivna kassaflödesprognoser direkt från Fortnox. Se hur länge pengarna räcker, analysera betalningsmönster och få smarta insikter. Gratis t.o.m. februari 2026. Svensk molntjänst med bankgradig kryptering.">
+    <meta name="keywords" content="kassaflöde fortnox, kassaflödesanalys, kassaflödesprognos, likviditetsprognos, AI kassaflöde, fortnox integration, fortnox dashboard, likviditetsplanering, cash runway, runway dagar, företagsekonomi, finansiell planering, småföretag Sverige, ekonomistyrning, fortnox tillägg, fortnox app, kassaposition, betalningsmönster, kundreskontra analys, leverantörsskulder, moms prognos, kassaflödesbudget, fortnox automatisering, ekonomisk prognos, likviditetshantering, working capital, rörelsekapital">
     <meta name="author" content="Stafe Development AB">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="theme-color" content="#1A3D2E">
     <meta name="language" content="Swedish">
     <meta name="geo.region" content="SE">
-    <meta name="geo.placename" content="Motala">
+    <meta name="geo.placename" content="Sverige">
+    <meta name="geo.position" content="62.0;15.0">
+    <meta name="ICBM" content="62.0, 15.0">
+    <meta name="distribution" content="Sweden">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="3 days">
+    <meta name="coverage" content="Sweden">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://cashdash.se">
@@ -23,20 +31,24 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cashdash.se">
-    <meta property="og:title" content="CashDash - Se hur länge dina pengar räcker">
-    <meta property="og:description" content="Koppla Fortnox och få AI-drivna kassaflödesprognoser. Realtidsinsikter för bättre finansiella beslut. 14 dagars gratis provperiod.">
+    <meta property="og:title" content="CashDash - AI-Driven Kassaflödesanalys för Fortnox">
+    <meta property="og:description" content="Sveriges smartaste kassaflödesprognos. Koppla Fortnox och få AI-drivna insikter om ditt kassaflöde. Se exakt hur länge pengarna räcker. Gratis t.o.m. februari 2026!">
     <meta property="og:locale" content="sv_SE">
-    <meta property="og:site_name" content="CashDash">
+    <meta property="og:site_name" content="CashDash - Kassaflödesanalys">
     <meta property="og:image" content="https://cashdash.se/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CashDash - AI-driven kassaflödesanalys för svenska företag med Fortnox">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://cashdash.se">
-    <meta name="twitter:title" content="CashDash - Kassaflödesdashboard för Svenska Företag">
-    <meta name="twitter:description" content="Se hur länge dina pengar räcker. Koppla Fortnox och få AI-drivna kassaflödesprognoser.">
+    <meta name="twitter:title" content="CashDash - AI Kassaflödesanalys för Fortnox">
+    <meta name="twitter:description" content="Se hur länge pengarna räcker. AI-drivna kassaflödesprognoser direkt från Fortnox. Gratis i januari & februari 2026!">
     <meta name="twitter:image" content="https://cashdash.se/images/og-image.png">
+    <meta name="twitter:image:alt" content="CashDash Dashboard - Kassaflödesanalys">
+    <meta name="twitter:creator" content="@cashdash_se">
+    <meta name="twitter:site" content="@cashdash_se">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -71,7 +83,7 @@
             "legalName" => "Stafe Development AB",
             "url" => "https://cashdash.se",
             "logo" => "https://cashdash.se/images/logo.svg",
-            "description" => "Kassaflödesdashboard för svenska företag med Fortnox-integration",
+            "description" => "AI-driven kassaflödesanalys och likviditetsprognos för svenska företag med Fortnox-integration",
             "address" => [
                 "@type" => "PostalAddress",
                 "streetAddress" => "Blomstergatan 6",
@@ -79,24 +91,31 @@
                 "postalCode" => "591 70",
                 "addressCountry" => "SE"
             ],
+            "areaServed" => [
+                "@type" => "Country",
+                "name" => "Sweden"
+            ],
             "sameAs" => [
                 "https://linkedin.com/company/cashdash",
-                "https://twitter.com/cashdash"
+                "https://twitter.com/cashdash_se"
             ]
         ],
         // SoftwareApplication
         [
             "@context" => "https://schema.org",
             "@type" => "SoftwareApplication",
-            "name" => "CashDash",
+            "name" => "CashDash - Kassaflödesanalys för Fortnox",
+            "alternateName" => ["CashDash", "Kassaflödesanalys", "Fortnox Kassaflöde"],
             "applicationCategory" => "BusinessApplication",
-            "operatingSystem" => "Web",
-            "description" => "AI-driven kassaflödesdashboard med Fortnox-integration för svenska företag.",
+            "applicationSubCategory" => "Kassaflödesanalys, Likviditetsprognos, Ekonomistyrning",
+            "operatingSystem" => "Web, iOS, Android",
+            "description" => "AI-driven kassaflödesanalys med Fortnox-integration. Se hur länge pengarna räcker, få smarta insikter om betalningsmönster och prognostisera kassaflödet 12 månader framåt. Sveriges smartaste likviditetsprognos för småföretag.",
             "offers" => [
                 "@type" => "Offer",
-                "price" => "149",
+                "price" => "0",
                 "priceCurrency" => "SEK",
-                "priceValidUntil" => now()->addYear()->format('Y-m-d'),
+                "description" => "Gratis t.o.m. 28 februari 2026, därefter 149 kr/mån",
+                "priceValidUntil" => "2026-02-28",
                 "availability" => "https://schema.org/InStock"
             ],
             "aggregateRating" => [
@@ -107,12 +126,34 @@
                 "worstRating" => "1"
             ],
             "featureList" => [
-                "Fortnox-integration",
+                "Fortnox-integration med ett klick",
                 "12-månaders kassaflödesprognos",
-                "AI-drivna insikter",
-                "Realtidsuppdateringar",
-                "Betalningsmönsteranalys",
-                "Bankgradig kryptering"
+                "AI-drivna finansiella insikter",
+                "Betalningsmönsteranalys per kund",
+                "Runway-beräkning (dagar tills pengarna tar slut)",
+                "Zero-knowledge AES-256 kryptering",
+                "Svenska datacenter",
+                "Automatisk synkronisering",
+                "Kundreskontra-analys",
+                "Leverantörsskuldsöversikt"
+            ],
+            "screenshot" => "https://cashdash.se/images/og-image.png",
+            "softwareHelp" => "https://cashdash.se/help",
+            "releaseNotes" => "https://cashdash.se/changelog"
+        ],
+        // WebApplication
+        [
+            "@context" => "https://schema.org",
+            "@type" => "WebApplication",
+            "name" => "CashDash Kassaflödesanalys",
+            "url" => "https://cashdash.se",
+            "browserRequirements" => "Requires JavaScript. Modern browsers (Chrome, Firefox, Safari, Edge)",
+            "applicationCategory" => "FinanceApplication",
+            "operatingSystem" => "All",
+            "offers" => [
+                "@type" => "Offer",
+                "price" => "0",
+                "priceCurrency" => "SEK"
             ]
         ],
         // FAQPage
@@ -122,35 +163,101 @@
             "mainEntity" => [
                 [
                     "@type" => "Question",
-                    "name" => "Hur säkerhetsskyddas min data?",
+                    "name" => "Vad är CashDash?",
                     "acceptedAnswer" => [
                         "@type" => "Answer",
-                        "text" => "Din data krypteras med din egen lösenfras som endast du har tillgång till. Vi använder AES-256-kryptering och Zero-Knowledge-arkitektur. All data lagras i svenska datacenter."
+                        "text" => "CashDash är en AI-driven kassaflödesanalys som kopplas till ditt Fortnox-konto. Du får automatiskt en översikt över hur länge pengarna räcker (runway), smarta insikter om betalningsmönster och en 12-månaders kassaflödesprognos."
                     ]
                 ],
                 [
                     "@type" => "Question",
-                    "name" => "Hur fungerar Fortnox-integrationen?",
+                    "name" => "Hur fungerar kassaflödesanalysen med Fortnox?",
                     "acceptedAnswer" => [
                         "@type" => "Answer",
-                        "text" => "Du kopplar ditt Fortnox-konto med ett klick via Fortnox egna inloggning. Vi hämtar sedan automatiskt relevanta data som fakturor, betalningar och kontosaldon."
+                        "text" => "Du kopplar ditt Fortnox-konto med ett klick via Fortnox säkra inloggning. CashDash hämtar sedan automatiskt fakturor, betalningar och kontosaldon för att beräkna ditt kassaflöde och ge dig AI-drivna insikter."
                     ]
                 ],
                 [
                     "@type" => "Question",
-                    "name" => "Vad kostar CashDash?",
+                    "name" => "Vad kostar CashDash kassaflödesanalys?",
                     "acceptedAnswer" => [
                         "@type" => "Answer",
-                        "text" => "CashDash kostar 149 kr per månad med 14 dagars gratis provperiod. Inget kreditkort krävs och du kan avsluta när som helst."
+                        "text" => "CashDash är helt gratis att använda under januari och februari 2026. Efter lanseringsperioden kostar tjänsten 149 kr per månad exklusive moms. Du kan avsluta när som helst."
                     ]
                 ],
                 [
                     "@type" => "Question",
-                    "name" => "Hur ofta uppdateras min data?",
+                    "name" => "Hur säker är min Fortnox-data i CashDash?",
                     "acceptedAnswer" => [
                         "@type" => "Answer",
-                        "text" => "Data synkroniseras automatiskt från Fortnox varje gång du loggar in. All data krypteras med din personliga nyckel och är tillgänglig under din session."
+                        "text" => "Din data krypteras med AES-256 och din egen lösenfras som endast du har tillgång till (Zero-Knowledge). All data lagras i svenska datacenter. Vi kan aldrig se din okrypterade data."
                     ]
+                ],
+                [
+                    "@type" => "Question",
+                    "name" => "Vad är runway och hur beräknas det?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "Runway visar hur många dagar dina pengar räcker baserat på din genomsnittliga burn rate (utgifter). CashDash beräknar detta automatiskt från din Fortnox-data och tar hänsyn till kommande fakturor och betalningar."
+                    ]
+                ],
+                [
+                    "@type" => "Question",
+                    "name" => "Fungerar CashDash med alla Fortnox-konton?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "Ja, CashDash fungerar med alla typer av Fortnox-konton. Du behöver bara godkänna kopplingen via Fortnox egna inloggning så hämtas relevant data automatiskt."
+                    ]
+                ],
+                [
+                    "@type" => "Question",
+                    "name" => "Hur ofta uppdateras kassaflödesprognosen?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "Data synkroniseras från Fortnox varje gång du loggar in och låser upp din kryptering. Prognosen och AI-insikterna uppdateras automatiskt baserat på den senaste datan."
+                    ]
+                ],
+                [
+                    "@type" => "Question",
+                    "name" => "Kan jag se betalningsmönster för mina kunder?",
+                    "acceptedAnswer" => [
+                        "@type" => "Answer",
+                        "text" => "Ja, CashDash analyserar automatiskt hur snabbt dina kunder betalar och visar betalningsmönster per kund. Du kan se vilka kunder som betalar i tid och vilka som ofta är sena."
+                    ]
+                ]
+            ]
+        ],
+        // HowTo
+        [
+            "@context" => "https://schema.org",
+            "@type" => "HowTo",
+            "name" => "Hur kommer jag igång med CashDash kassaflödesanalys?",
+            "description" => "Kom igång med CashDash kassaflödesanalys för Fortnox på under 2 minuter.",
+            "totalTime" => "PT2M",
+            "step" => [
+                [
+                    "@type" => "HowToStep",
+                    "position" => 1,
+                    "name" => "Skapa konto",
+                    "text" => "Registrera dig gratis på cashdash.se med din e-postadress."
+                ],
+                [
+                    "@type" => "HowToStep",
+                    "position" => 2,
+                    "name" => "Koppla Fortnox",
+                    "text" => "Klicka på 'Koppla Fortnox' och logga in med ditt Fortnox-konto."
+                ],
+                [
+                    "@type" => "HowToStep",
+                    "position" => 3,
+                    "name" => "Skapa krypteringsnyckel",
+                    "text" => "Välj en personlig lösenfras för att kryptera din data."
+                ],
+                [
+                    "@type" => "HowToStep",
+                    "position" => 4,
+                    "name" => "Se din kassaflödesprognos",
+                    "text" => "Din dashboard visar nu runway, kassaflödesprognos och AI-drivna insikter."
                 ]
             ]
         ],
