@@ -688,11 +688,13 @@ function initializeDashboardCharts() {
     // Payment Patterns Bar Chart
     if (paymentPatternsContainer) {
         const patternNames = paymentPatterns.map(p => p.name);
-        const patternDays = paymentPatterns.map(p => p.days);
-        const patternColors = patternDays.map(days => {
-            if (days <= 5) return '#2D7A4F';
-            if (days <= 10) return '#C4A962';
-            if (days <= 14) return '#D97706';
+        const patternDays = paymentPatterns.map(p => Math.max(1, p.days)); // Min 1 for visibility
+        const patternLabels = paymentPatterns.map(p => p.label);
+        const patternColors = paymentPatterns.map(p => {
+            if (p.early) return '#2D7A4F'; // Early payers are green
+            if (p.days <= 5) return '#2D7A4F';
+            if (p.days <= 10) return '#C4A962';
+            if (p.days <= 14) return '#D97706';
             return '#DC2626';
         });
 
@@ -723,7 +725,7 @@ function initializeDashboardCharts() {
             colors: patternColors,
             dataLabels: {
                 enabled: true,
-                formatter: (val) => val + ' dgr',
+                formatter: (val, opts) => patternLabels[opts.dataPointIndex],
                 offsetX: 30,
                 style: { fontSize: '11px', colors: ['#6B6B6B'] }
             },
@@ -740,7 +742,12 @@ function initializeDashboardCharts() {
             },
             grid: { show: false },
             tooltip: {
-                y: { formatter: (val) => val + ' dagar efter förfallodatum' }
+                y: {
+                    formatter: (val, opts) => {
+                        const p = paymentPatterns[opts.dataPointIndex];
+                        return p.early ? 'Betalar före förfallodatum' : val + ' dagar efter förfallodatum';
+                    }
+                }
             },
             legend: { show: false }
         };

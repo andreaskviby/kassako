@@ -180,14 +180,21 @@ class Dashboard extends Component
 
         if ($patterns->isEmpty()) {
             return [
-                ['name' => 'Ingen data', 'days' => 0],
+                ['name' => 'Ingen data', 'days' => 0, 'label' => '–', 'early' => false],
             ];
         }
 
-        return $patterns->map(fn ($p) => [
-            'name' => $p->customer_name === '[ENCRYPTED]' ? 'Kund ' . $p->customer_number : $p->customer_name,
-            'days' => max(0, $p->avg_days_to_pay ?? 0),
-        ])->toArray();
+        return $patterns->map(function ($p) {
+            $days = $p->avg_days_to_pay ?? 0;
+            $isEarly = $days < 0;
+
+            return [
+                'name' => $p->customer_name === '[ENCRYPTED]' ? 'Kund ' . $p->customer_number : $p->customer_name,
+                'days' => abs($days), // Use absolute value for bar width
+                'label' => $isEarly ? 'I tid' : abs($days) . ' dgr',
+                'early' => $isEarly,
+            ];
+        })->toArray();
     }
 
     public function getOutstandingInvoicesProperty(): array
