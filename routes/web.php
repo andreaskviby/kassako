@@ -75,11 +75,13 @@ Route::middleware([
 
     // Billing routes (don't require encryption)
     Route::get('/billing', [BillingController::class, 'index'])->name('billing');
-    Route::get('/billing/subscribe', [BillingController::class, 'subscribe'])->name('billing.subscribe');
-    Route::get('/billing/success', [BillingController::class, 'success'])->name('billing.success');
-    Route::get('/billing/portal', [BillingController::class, 'portal'])->name('billing.portal');
-    Route::post('/billing/cancel', [BillingController::class, 'cancel'])->name('billing.cancel');
-    Route::post('/billing/resume', [BillingController::class, 'resume'])->name('billing.resume');
+
+    // Temporarily redirect all billing actions to billing page (Stripe not configured yet)
+    Route::get('/billing/subscribe', fn() => redirect()->route('billing'))->name('billing.subscribe');
+    Route::get('/billing/success', fn() => redirect()->route('billing'))->name('billing.success');
+    Route::get('/billing/portal', fn() => redirect()->route('billing'))->name('billing.portal');
+    Route::post('/billing/cancel', fn() => redirect()->route('billing'))->name('billing.cancel');
+    Route::post('/billing/resume', fn() => redirect()->route('billing'))->name('billing.resume');
 });
 
 Route::post('/stripe/webhook', [\Laravel\Cashier\Http\Controllers\WebhookController::class, 'handleWebhook'])
