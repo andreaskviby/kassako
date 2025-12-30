@@ -89,3 +89,29 @@ Route::post('/stripe/webhook', [\Laravel\Cashier\Http\Controllers\WebhookControl
 
 Route::post('/fortnox/webhook', [FortnoxWebhookController::class, 'handle'])
     ->name('fortnox.webhook');
+
+// Sitemap for SEO
+Route::get('/sitemap.xml', function () {
+    $urls = [
+        ['loc' => 'https://cashdash.se/', 'priority' => '1.0', 'changefreq' => 'weekly'],
+        ['loc' => 'https://cashdash.se/legal/user-agreement', 'priority' => '0.3', 'changefreq' => 'monthly'],
+        ['loc' => 'https://cashdash.se/login', 'priority' => '0.5', 'changefreq' => 'monthly'],
+        ['loc' => 'https://cashdash.se/register', 'priority' => '0.8', 'changefreq' => 'monthly'],
+    ];
+
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+    foreach ($urls as $url) {
+        $xml .= '<url>';
+        $xml .= '<loc>' . $url['loc'] . '</loc>';
+        $xml .= '<lastmod>' . now()->format('Y-m-d') . '</lastmod>';
+        $xml .= '<changefreq>' . $url['changefreq'] . '</changefreq>';
+        $xml .= '<priority>' . $url['priority'] . '</priority>';
+        $xml .= '</url>';
+    }
+
+    $xml .= '</urlset>';
+
+    return response($xml)->header('Content-Type', 'application/xml');
+})->name('sitemap');

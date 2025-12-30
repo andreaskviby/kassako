@@ -1,2 +1,41 @@
+# CashDash - AI-Driven Kassaflödesanalys för Fortnox
+# https://cashdash.se
+
 User-agent: *
-Disallow:
+Allow: /
+Allow: /legal/user-agreement
+
+# Sitemap
+Sitemap: https://cashdash.se/sitemap.xml
+
+# Disallow private/app areas
+Disallow: /dashboard
+Disallow: /billing
+Disallow: /encryption
+Disallow: /fortnox
+Disallow: /api
+Disallow: /livewire
+Disallow: /login
+Disallow: /register
+Disallow: /user
+Disallow: /teams
+
+# Allow Google to crawl everything public
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Allow Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Allow other major search engines
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
