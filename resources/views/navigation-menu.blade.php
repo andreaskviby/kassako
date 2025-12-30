@@ -23,6 +23,19 @@
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6 sm:gap-3">
+                <!-- Session Timer -->
+                @if(session('encryption_expires_at'))
+                    <div x-data="sessionTimer('{{ session('encryption_expires_at')->toIso8601String() }}')"
+                         x-init="startTimer()"
+                         class="flex items-center gap-1.5 text-xs text-cashdash-muted">
+                        <svg class="w-3.5 h-3.5 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Session utgår om</span>
+                        <span x-text="timeRemaining" class="font-medium text-cashdash-forest"></span>
+                    </div>
+                @endif
+
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="relative">

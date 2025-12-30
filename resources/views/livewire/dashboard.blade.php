@@ -35,25 +35,6 @@
             </div>
         @endif
 
-        {{-- Minimal Session Timer --}}
-        @if($hasEncryption && $sessionExpiresAt)
-            <div class="mb-4 flex justify-end"
-                 x-data="sessionTimer('{{ $sessionExpiresAt }}')"
-                 x-init="startTimer()">
-                <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-forest-50/50 rounded-full text-xs text-cashdash-muted">
-                    <svg class="w-3 h-3 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                    <span class="text-cashdash-muted/70">AES-256</span>
-                    <span class="text-cashdash-muted/40">·</span>
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span x-text="timeRemaining" class="font-medium text-cashdash-forest"></span>
-                </div>
-            </div>
-        @endif
-
         {{-- Status Bar --}}
         <div class="flex items-center justify-between mb-6">
             <div class="flex items-center gap-3">
@@ -794,38 +775,5 @@ function initializeDashboardCharts() {
     @endif
 }
 
-// Session Timer Alpine.js component
-function sessionTimer(expiresAt) {
-    return {
-        expiresAt: new Date(expiresAt),
-        timeRemaining: '',
-        interval: null,
-
-        startTimer() {
-            this.updateTimeRemaining();
-            this.interval = setInterval(() => {
-                this.updateTimeRemaining();
-            }, 1000);
-        },
-
-        updateTimeRemaining() {
-            const now = new Date();
-            const diff = this.expiresAt - now;
-
-            if (diff <= 0) {
-                this.timeRemaining = 'Utgången';
-                clearInterval(this.interval);
-                window.location.href = '/encryption/unlock';
-                return;
-            }
-
-            const minutes = Math.floor(diff / 60000);
-            const seconds = Math.floor((diff % 60000) / 1000);
-
-            // Compact format: "45:23"
-            this.timeRemaining = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
-    };
-}
 </script>
 @endpush

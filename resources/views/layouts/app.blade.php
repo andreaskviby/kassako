@@ -51,5 +51,42 @@
         @stack('modals')
 
         @livewireScripts
+
+        <!-- Global Session Timer -->
+        <script>
+        function sessionTimer(expiresAt) {
+            return {
+                expiresAt: new Date(expiresAt),
+                timeRemaining: '',
+                interval: null,
+
+                startTimer() {
+                    this.updateTimeRemaining();
+                    this.interval = setInterval(() => {
+                        this.updateTimeRemaining();
+                    }, 1000);
+                },
+
+                updateTimeRemaining() {
+                    const now = new Date();
+                    const diff = this.expiresAt - now;
+
+                    if (diff <= 0) {
+                        this.timeRemaining = 'Utgången';
+                        clearInterval(this.interval);
+                        window.location.href = '/encryption/unlock';
+                        return;
+                    }
+
+                    const minutes = Math.floor(diff / 60000);
+                    const seconds = Math.floor((diff % 60000) / 1000);
+
+                    this.timeRemaining = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }
+            };
+        }
+        </script>
+
+        @stack('scripts')
     </body>
 </html>
