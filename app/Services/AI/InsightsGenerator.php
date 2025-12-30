@@ -15,7 +15,7 @@ class InsightsGenerator
 
         try {
             $response = OpenAI::chat()->create([
-                'model' => 'gpt-5-mini',
+                'model' => config('openai.model', 'gpt-5-mini'),
                 'messages' => [
                     [
                         'role' => 'system',
