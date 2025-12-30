@@ -7,6 +7,7 @@ use App\Models\FortnoxInvoice;
 use App\Services\AI\InsightsGenerator;
 use App\Services\CashFlow\CashFlowCalculator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class Dashboard extends Component
@@ -16,11 +17,24 @@ class Dashboard extends Component
     public bool $hasConnection = false;
     public ?string $lastUpdated = null;
     public string $chartPeriod = '12';
+    public string $syncStatus = 'idle';
+    public ?string $sessionExpiresAt = null;
+    public bool $hasEncryption = false;
 
     public function mount(): void
     {
         $team = Auth::user()->currentTeam;
         $this->hasConnection = $team->hasFortnoxConnected();
+        $this->hasEncryption = $team->hasEncryptionInitialized();
+
+        // Get session expiration time
+        $expiresAt = session('encryption_expires_at');
+        if ($expiresAt) {
+            $this->sessionExpiresAt = $expiresAt->toIso8601String();
+        }
+
+        // Get sync status from cache
+        $this->syncStatus = Cache::get("sync_status_{$team->id}", 'idle');
 
         if ($this->hasConnection) {
             $this->snapshot = $team->latestSnapshot;
@@ -28,6 +42,19 @@ class Dashboard extends Component
         }
 
         $this->isLoading = false;
+    }
+
+    public function checkSyncStatus(): void
+    {
+        $team = Auth::user()->currentTeam;
+        $this->syncStatus = Cache::get("sync_status_{$team->id}", 'idle');
+
+        if ($this->syncStatus === 'completed') {
+            // Reload snapshot after sync completed
+            $this->snapshot = $team->fresh()->latestSnapshot;
+            $this->lastUpdated = $this->snapshot?->updated_at?->locale('sv')->diffForHumans();
+            $this->dispatch('charts-updated');
+        }
     }
 
     public function setChartPeriod(string $period): void

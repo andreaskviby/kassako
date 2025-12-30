@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'subscribed' => \App\Http\Middleware\EnsureTeamSubscribed::class,
+            'encryption.unlocked' => \App\Http\Middleware\RequireEncryptionUnlocked::class,
         ]);
 
         $middleware->validateCsrfTokens(except: [

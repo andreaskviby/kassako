@@ -211,16 +211,36 @@ class EncryptionController extends Controller
             return $this->errorResponse('Incorrect passphrase. Please try again.');
         }
 
+        // Store session expiration time (60 minutes)
+        $expiresAt = now()->addMinutes(60);
+        session(['encryption_expires_at' => $expiresAt]);
+
+        // Create a session token for background sync
+        $tokenId = $this->encryptionService->createSessionToken(
+            $team,
+            $sessionId,
+            'sync',
+            60
+        );
+        session(['encryption_token_id' => $tokenId]);
+
+        // Dispatch sync job if Fortnox is connected
+        if ($team->hasFortnoxConnected()) {
+            session(['sync_status' => 'syncing']);
+            \App\Jobs\SyncFortnoxDataEncrypted::dispatch($team, $tokenId);
+        }
+
         if ($request->wantsJson()) {
             return response()->json([
                 'success' => true,
                 'message' => 'Encryption unlocked successfully.',
+                'expires_at' => $expiresAt->toIso8601String(),
             ]);
         }
 
         return redirect()
             ->intended(route('dashboard'))
-            ->with('success', 'Encryption unlocked.');
+            ->with('success', 'Kryptering upplåst. Sessionen är giltig i 60 minuter.');
     }
 
     /**

@@ -149,7 +149,7 @@
                     "name" => "Hur ofta uppdateras min data?",
                     "acceptedAnswer" => [
                         "@type" => "Answer",
-                        "text" => "Data synkroniseras automatiskt varje timme från Fortnox. Du kan också manuellt starta en synkronisering när som helst."
+                        "text" => "Data synkroniseras automatiskt från Fortnox varje gång du loggar in. All data krypteras med din personliga nyckel och är tillgänglig under din session."
                     ]
                 ]
             ]
@@ -349,7 +349,7 @@
                         <div class="step-number" aria-hidden="true">2</div>
                         <h3 class="font-display font-semibold text-xl text-cashdash-text mb-2">Synka data</h3>
                         <p class="text-cashdash-muted">
-                            Vi hämtar automatiskt fakturor, betalningar och saldon. Uppdateras varje timme.
+                            Vi hämtar automatiskt fakturor, betalningar och saldon vid inloggning. Krypteras med din nyckel.
                         </p>
                         <div class="mt-4">
                             <svg class="w-16 h-16 mx-auto text-cashdash-forest opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -566,6 +566,116 @@
                                             -<span class="dashboard-counter-currency" data-target="156200">0</span> <span class="text-lg font-normal text-cashdash-muted">kr</span>
                                         </p>
                                         <p class="text-cashdash-muted text-xs mt-2">Nästa 30 dagar • 12 fakturor</p>
+                                    </div>
+                                </div>
+
+                                <!-- Outstanding Invoices Section -->
+                                <div class="bg-white rounded-2xl p-5 md:p-6 border border-forest-100 shadow-card mb-6">
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                                        <div>
+                                            <h3 class="font-semibold text-cashdash-text text-lg">Utestående fakturor</h3>
+                                            <p class="text-cashdash-muted text-sm">Obetalda och förfallna kundfordringar</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                        <!-- Unpaid Invoices -->
+                                        <div class="bg-forest-50 rounded-xl p-4">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <svg class="w-4 h-4 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                </svg>
+                                                <span class="text-cashdash-muted text-xs font-medium">Obetalda</span>
+                                            </div>
+                                            <p class="font-display text-2xl font-bold text-cashdash-forest">8</p>
+                                            <p class="text-cashdash-muted text-xs">234 500 kr</p>
+                                        </div>
+
+                                        <!-- Overdue Invoices -->
+                                        <div class="bg-red-50 rounded-xl p-4">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <svg class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <span class="text-cashdash-muted text-xs font-medium">Förfallna</span>
+                                            </div>
+                                            <p class="font-display text-2xl font-bold text-red-500">2</p>
+                                            <p class="text-cashdash-muted text-xs">45 000 kr</p>
+                                        </div>
+
+                                        <!-- Total Outstanding -->
+                                        <div class="bg-cashdash-gold/10 rounded-xl p-4">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <svg class="w-4 h-4 text-cashdash-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                </svg>
+                                                <span class="text-cashdash-muted text-xs font-medium">Totalt utestående</span>
+                                            </div>
+                                            <p class="font-display text-2xl font-bold text-cashdash-text">10</p>
+                                            <p class="text-cashdash-muted text-xs">279 500 kr</p>
+                                        </div>
+
+                                        <!-- Aging Analysis -->
+                                        <div class="bg-gray-50 rounded-xl p-4">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <svg class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <span class="text-cashdash-muted text-xs font-medium">Åldringsanalys</span>
+                                            </div>
+                                            <div class="space-y-1 mt-2">
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex-1 bg-gray-200 rounded-full h-2 overflow-hidden">
+                                                        <div class="h-full rounded-full bg-cashdash-forest" style="width: 60%"></div>
+                                                    </div>
+                                                    <span class="text-xs text-cashdash-muted w-12">0-30d</span>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex-1 bg-gray-200 rounded-full h-2 overflow-hidden">
+                                                        <div class="h-full rounded-full bg-yellow-500" style="width: 25%"></div>
+                                                    </div>
+                                                    <span class="text-xs text-cashdash-muted w-12">31-60d</span>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex-1 bg-gray-200 rounded-full h-2 overflow-hidden">
+                                                        <div class="h-full rounded-full bg-red-500" style="width: 15%"></div>
+                                                    </div>
+                                                    <span class="text-xs text-cashdash-muted w-12">61-90d</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Overdue Invoices List -->
+                                    <div class="border-t border-forest-100 pt-4">
+                                        <h4 class="text-sm font-medium text-cashdash-text mb-3 flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                            Förfallna fakturor som kräver åtgärd
+                                        </h4>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center justify-between bg-red-50/50 rounded-lg px-3 py-2">
+                                                <div class="flex items-center gap-3">
+                                                    <span class="text-sm font-medium text-cashdash-text">#1047</span>
+                                                    <span class="text-sm text-cashdash-muted">Byggteamet AB</span>
+                                                </div>
+                                                <div class="flex items-center gap-4">
+                                                    <span class="text-sm font-semibold text-cashdash-text">32 500 kr</span>
+                                                    <span class="text-xs px-2 py-1 bg-red-100 text-red-700 rounded-full font-medium">14 dagar försenad</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center justify-between bg-red-50/50 rounded-lg px-3 py-2">
+                                                <div class="flex items-center gap-3">
+                                                    <span class="text-sm font-medium text-cashdash-text">#1039</span>
+                                                    <span class="text-sm text-cashdash-muted">Konsult Partner</span>
+                                                </div>
+                                                <div class="flex items-center gap-4">
+                                                    <span class="text-sm font-semibold text-cashdash-text">12 500 kr</span>
+                                                    <span class="text-xs px-2 py-1 bg-red-100 text-red-700 rounded-full font-medium">8 dagar försenad</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -1131,7 +1241,7 @@
                             ],
                             [
                                 'question' => 'Hur ofta uppdateras min data?',
-                                'answer' => 'Data synkroniseras automatiskt varje timme från Fortnox. Du kan också manuellt starta en synkronisering när som helst för att få de senaste siffrorna.'
+                                'answer' => 'Data synkroniseras automatiskt från Fortnox varje gång du loggar in och anger din lösenfras. All data krypteras med din personliga nyckel och är tillgänglig under din 60-minuters session. Du kan också manuellt uppdatera när som helst.'
                             ],
                             [
                                 'question' => 'Fungerar det för mitt företag?',

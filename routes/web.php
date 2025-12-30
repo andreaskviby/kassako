@@ -49,8 +49,10 @@ Route::middleware([
     Route::get('/encryption/status', [EncryptionController::class, 'status'])
         ->name('encryption.status');
 
-    // Dashboard - accessible without encryption (shows empty state if no Fortnox)
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    // Dashboard - requires encryption to be unlocked if set up
+    Route::get('/dashboard', Dashboard::class)
+        ->middleware('encryption.unlocked')
+        ->name('dashboard');
 
     // Fortnox routes - encryption required for connect, handled in controller
     Route::get('/fortnox/connect', [FortnoxController::class, 'connect'])

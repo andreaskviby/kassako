@@ -23,6 +23,49 @@
             </div>
         @endif
 
+        {{-- Sync Status Banner --}}
+        @if($syncStatus === 'syncing')
+            <div class="mb-6 bg-cashdash-forest text-white rounded-xl p-4 flex items-center justify-center gap-3" wire:poll.2s="checkSyncStatus">
+                <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span class="font-semibold text-lg">SYNKRONISERAR...</span>
+                <span class="text-white/80 text-sm">Hämtar och krypterar din data från Fortnox</span>
+            </div>
+        @endif
+
+        {{-- Session Timer & Security Status --}}
+        @if($hasEncryption && $sessionExpiresAt)
+            <div class="mb-6 bg-gradient-to-r from-forest-50 to-cashdash-gold/10 border border-forest-200 rounded-xl p-4"
+                 x-data="sessionTimer('{{ $sessionExpiresAt }}')"
+                 x-init="startTimer()">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-cashdash-forest/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-cashdash-text flex items-center gap-2">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                                Kryptering aktiv
+                            </p>
+                            <p class="text-sm text-cashdash-muted">Din data är skyddad med AES-256 kryptering</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-cashdash-muted">Session utgår om</p>
+                        <p class="font-display font-bold text-xl text-cashdash-forest" x-text="timeRemaining"></p>
+                    </div>
+                </div>
+            </div>
+        @endif
+
         {{-- Status Bar --}}
         <div class="flex items-center justify-between mb-6">
             <div class="flex items-center gap-3">
@@ -42,11 +85,13 @@
             <button
                 wire:click="refreshData"
                 wire:loading.attr="disabled"
+                @if($syncStatus === 'syncing') disabled @endif
                 class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-forest-50 hover:bg-forest-100 transition-colors disabled:opacity-50 text-sm font-medium text-cashdash-forest"
                 title="Uppdatera data"
             >
                 <svg
                     class="w-4 h-4"
+                    @if($syncStatus === 'syncing') class="animate-spin" @endif
                     wire:loading.class="animate-spin"
                     fill="none"
                     stroke="currentColor"
@@ -759,6 +804,49 @@ function initializeDashboardCharts() {
         window.runwaySparkline.render();
     }
     @endif
+}
+
+// Session Timer Alpine.js component
+function sessionTimer(expiresAt) {
+    return {
+        expiresAt: new Date(expiresAt),
+        timeRemaining: '',
+        interval: null,
+
+        startTimer() {
+            this.updateTimeRemaining();
+            this.interval = setInterval(() => {
+                this.updateTimeRemaining();
+            }, 1000);
+        },
+
+        updateTimeRemaining() {
+            const now = new Date();
+            const diff = this.expiresAt - now;
+
+            if (diff <= 0) {
+                this.timeRemaining = 'Utgången';
+                clearInterval(this.interval);
+                // Redirect to unlock page
+                window.location.href = '/encryption/unlock';
+                return;
+            }
+
+            const minutes = Math.floor(diff / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+
+            if (minutes > 0) {
+                this.timeRemaining = `${minutes} min ${seconds.toString().padStart(2, '0')} sek`;
+            } else {
+                this.timeRemaining = `${seconds} sek`;
+            }
+
+            // Warn when less than 5 minutes
+            if (minutes < 5) {
+                this.timeRemaining = '⚠️ ' + this.timeRemaining;
+            }
+        }
+    };
 }
 </script>
 @endpush
