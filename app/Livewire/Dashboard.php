@@ -20,6 +20,7 @@ class Dashboard extends Component
     public string $syncStatus = 'idle';
     public ?string $sessionExpiresAt = null;
     public bool $hasEncryption = false;
+    public bool $hasActiveSession = false;
 
     public function mount(): void
     {
@@ -29,8 +30,9 @@ class Dashboard extends Component
 
         // Get session expiration time
         $expiresAt = session('encryption_expires_at');
-        if ($expiresAt) {
+        if ($expiresAt && $expiresAt->isFuture()) {
             $this->sessionExpiresAt = $expiresAt->toIso8601String();
+            $this->hasActiveSession = true;
         }
 
         // Get sync status from cache
@@ -65,9 +67,18 @@ class Dashboard extends Component
 
     public function refreshData(): void
     {
-        $this->isLoading = true;
-
         $team = Auth::user()->currentTeam;
+
+        // Don't allow refresh if encryption is enabled but session is not active
+        if ($team->hasEncryptionInitialized() && !session('encryption_expires_at')) {
+            $this->dispatch('notify', [
+                'type' => 'error',
+                'message' => 'Lås upp krypteringen först för att uppdatera data.',
+            ]);
+            return;
+        }
+
+        $this->isLoading = true;
 
         try {
             $calculator = app(CashFlowCalculator::class);
@@ -86,7 +97,7 @@ class Dashboard extends Component
                 'message' => 'Data uppdaterad!',
             ]);
 
-            $this->dispatch('charts-updated');
+            $this->dispatch('charts-updated', chartData: $this->cashFlowChartData);
         } catch (\Exception $e) {
             $this->dispatch('notify', [
                 'type' => 'error',
