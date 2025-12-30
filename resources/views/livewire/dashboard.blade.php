@@ -396,7 +396,9 @@
                     <div class="bg-white rounded-2xl p-5 md:p-6 border border-forest-100 shadow-card flex flex-col">
                         <h3 class="font-semibold text-cashdash-text text-lg mb-1">Runway-status</h3>
                         <p class="text-cashdash-muted text-sm mb-2">Hur länge räcker pengarna?</p>
-                        <div id="runway-radial-chart" class="h-32 flex-shrink-0 -mb-4" wire:ignore></div>
+                        <div class="h-36 overflow-hidden flex-shrink-0">
+                            <div id="runway-radial-chart" class="h-48 -mt-2" wire:ignore></div>
+                        </div>
                         <div class="pt-4 border-t border-forest-100 space-y-2">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-cashdash-muted">Kritisk nivå</span>
@@ -646,7 +648,6 @@ function initializeDashboardCharts() {
             chart: {
                 height: '100%',
                 type: 'radialBar',
-                offsetY: -15,
                 animations: {
                     enabled: true,
                     easing: 'easeinout',
