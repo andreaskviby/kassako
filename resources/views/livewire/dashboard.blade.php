@@ -35,33 +35,21 @@
             </div>
         @endif
 
-        {{-- Session Timer & Security Status --}}
+        {{-- Minimal Session Timer --}}
         @if($hasEncryption && $sessionExpiresAt)
-            <div class="mb-6 bg-gradient-to-r from-forest-50 to-cashdash-gold/10 border border-forest-200 rounded-xl p-4"
+            <div class="mb-4 flex justify-end"
                  x-data="sessionTimer('{{ $sessionExpiresAt }}')"
                  x-init="startTimer()">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-cashdash-forest/10 flex items-center justify-center">
-                            <svg class="w-5 h-5 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-cashdash-text flex items-center gap-2">
-                                <span class="relative flex h-2 w-2">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                                </span>
-                                Kryptering aktiv
-                            </p>
-                            <p class="text-sm text-cashdash-muted">Din data är skyddad med AES-256 kryptering</p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-sm text-cashdash-muted">Session utgår om</p>
-                        <p class="font-display font-bold text-xl text-cashdash-forest" x-text="timeRemaining"></p>
-                    </div>
+                <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-forest-50/50 rounded-full text-xs text-cashdash-muted">
+                    <svg class="w-3 h-3 text-cashdash-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span class="text-cashdash-muted/70">AES-256</span>
+                    <span class="text-cashdash-muted/40">·</span>
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span x-text="timeRemaining" class="font-medium text-cashdash-forest"></span>
                 </div>
             </div>
         @endif
@@ -827,7 +815,6 @@ function sessionTimer(expiresAt) {
             if (diff <= 0) {
                 this.timeRemaining = 'Utgången';
                 clearInterval(this.interval);
-                // Redirect to unlock page
                 window.location.href = '/encryption/unlock';
                 return;
             }
@@ -835,16 +822,8 @@ function sessionTimer(expiresAt) {
             const minutes = Math.floor(diff / 60000);
             const seconds = Math.floor((diff % 60000) / 1000);
 
-            if (minutes > 0) {
-                this.timeRemaining = `${minutes} min ${seconds.toString().padStart(2, '0')} sek`;
-            } else {
-                this.timeRemaining = `${seconds} sek`;
-            }
-
-            // Warn when less than 5 minutes
-            if (minutes < 5) {
-                this.timeRemaining = '⚠️ ' + this.timeRemaining;
-            }
+            // Compact format: "45:23"
+            this.timeRemaining = `${minutes}:${seconds.toString().padStart(2, '0')}`;
         }
     };
 }
